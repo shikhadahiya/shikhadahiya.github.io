@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shikha — Product Manager Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F7F4EF;
+    --surface: #FFFFFF;
+    --surface2: #F0EDE8;
+    --ink: #0D1B2A;
+    --ink2: #4A5568;
+    --ink3: #718096;
+    --teal: #00B4A2;
+    --teal-light: #E1F5EE;
+    --teal-dark: #007A6E;
+    --gold: #C9A84C;
+    --blue: #185FA5;
+    --blue-light: #E6F1FB;
+    --purple: #3C3489;
+    --purple-light: #EEEDFE;
+    --border: rgba(13,27,42,0.1);
+    --border2: rgba(13,27,42,0.18);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(247,244,239,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0.85rem 0;
+  }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--ink2); text-decoration: none; font-weight: 500; }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* HERO */
+  .hero { padding: 5rem 0 3.5rem; }
+  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink3); margin-bottom: 1.2rem; }
+  .teal-bar { display: block; width: 40px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 1.6rem; }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; color: var(--ink); line-height: 1.05; margin-bottom: 0.4rem; }
+  .hero-tagline { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; font-style: italic; color: var(--ink2); margin-bottom: 1.5rem; }
+  .hero-desc { font-size: 15px; color: var(--ink2); max-width: 580px; margin-bottom: 2rem; line-height: 1.8; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem; }
+  .pill { font-size: 12px; font-weight: 500; padding: 5px 13px; border-radius: 20px; border: 0.5px solid var(--border2); color: var(--ink2); background: var(--surface); }
+  .pill.teal { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-primary { font-size: 13px; font-weight: 600; padding: 10px 22px; border-radius: var(--radius-sm); background: var(--ink); color: var(--bg); border: none; cursor: pointer; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { background: #1a2f45; }
+  .btn-ghost { font-size: 13px; font-weight: 500; padding: 10px 22px; border-radius: var(--radius-sm); background: transparent; color: var(--ink); border: 0.5px solid var(--border2); cursor: pointer; text-decoration: none; display: inline-block; }
+  .btn-ghost:hover { background: var(--surface2); }
+
+  /* SECTIONS */
+  .section { padding: 3rem 0; border-top: 0.5px solid var(--border); }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 0.3rem; }
+  .section-sub { font-size: 14px; color: var(--ink3); margin-bottom: 2.2rem; }
+
+  /* STATS */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .stat-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--ink); }
+  .stat-lbl { font-size: 12px; color: var(--ink3); margin-top: 4px; line-height: 1.4; }
+
+  /* LENS CARDS */
+  .lens-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .lens-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; position: relative; overflow: hidden; }
+  .lens-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .lens-icon { font-size: 24px; margin-bottom: 0.9rem; }
+  .lens-title { font-size: 16px; font-weight: 600; margin-bottom: 0.5rem; }
+  .lens-desc { font-size: 13px; color: var(--ink2); line-height: 1.65; margin-bottom: 1.1rem; }
+  .lens-bullets { list-style: none; }
+  .lens-bullets li { font-size: 12px; color: var(--ink3); padding: 3px 0; display: flex; gap: 7px; }
+  .lens-bullets li::before { content: '→'; color: var(--teal); flex-shrink: 0; }
+
+  /* WORK CARDS */
+  .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .work-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.4rem; transition: border-color 0.2s, box-shadow 0.2s; }
+  .work-card:hover { border-color: var(--teal); box-shadow: 0 2px 16px rgba(0,180,162,0.08); }
+  .work-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; }
+  .work-tag { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 12px; }
+  .work-tag.fintech { background: var(--teal-light); color: var(--teal-dark); }
+  .work-tag.infra { background: var(--blue-light); color: var(--blue); }
+  .work-tag.ai { background: var(--purple-light); color: var(--purple); }
+  .work-tag.research { background: #FAEEDA; color: #854F0B; }
+  .work-co { font-size: 11px; color: var(--ink3); }
+  .work-title { font-size: 15px; font-weight: 600; margin-bottom: 0.5rem; }
+  .work-desc { font-size: 13px; color: var(--ink2); line-height: 1.65; margin-bottom: 1rem; }
+  .work-impact { font-size: 12px; font-weight: 500; color: var(--teal-dark); padding-top: 0.85rem; border-top: 0.5px solid var(--border); }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .skill-group { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 1.1rem; }
+  .skill-group-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink3); margin-bottom: 0.75rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .skill-tag { font-size: 11px; padding: 3px 8px; border-radius: 10px; border: 0.5px solid var(--border2); color: var(--ink2); }
+
+  /* CONTACT */
+  .contact-section { padding: 3rem 0; border-top: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-headline { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ink); }
+  .contact-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .contact-link { font-size: 13px; font-weight: 500; padding: 9px 18px; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); color: var(--ink2); text-decoration: none; }
+  .contact-link:hover { background: var(--surface2); color: var(--ink); }
+  .contact-link.teal { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
+
+  /* FOOTER */
+  footer { border-top: 0.5px solid var(--border); padding: 1.5rem 0; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 12px; color: var(--ink3); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .hero-name { font-size: 36px; }
+    .lens-grid, .work-grid, .skills-grid, .stat-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .contact-section { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">Shikha</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <section class="hero" id="about">
+      <p class="hero-eyebrow">Product Manager · Oxford MBA · London</p>
+      <span class="teal-bar"></span>
+      <h1 class="hero-name">Shikha</h1>
+      <p class="hero-tagline">I built things. Now I decide what to build.</p>
+      <p class="hero-desc">Six years shipping production systems at Bloomberg and Microsoft — across order management, distributed databases, and search infrastructure. Now channelling that engineering depth into product strategy, backed by an Oxford MBA and a fintech startup I co-founded.</p>
+      <div class="pill-row">
+        <span class="pill teal">Fintech PM</span>
+        <span class="pill">Order Management Systems</span>
+        <span class="pill">Technical Architecture</span>
+        <span class="pill">Oxford MBA · Saïd</span>
+        <span class="pill">Credimate Co-founder</span>
+      </div>
+      <div class="btn-row">
+        <a href="#work" class="btn-primary">View my work</a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-num">6</div>
+          <div class="stat-lbl">Years in production engineering</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2</div>
+          <div class="stat-lbl">Global tech giants</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">75+</div>
+          <div class="stat-lbl">Traders on migrated OMS</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Oxford</div>
+          <div class="stat-lbl">MBA, Saïd Business School</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="section-label">The case for PM</p>
+      <h2 class="section-title">Three lenses on my career</h2>
+      <p class="section-sub">Engineering depth — seen through a product eye.</p>
+      <div class="lens-grid">
+        <div class="lens-card">
+          <div class="lens-accent" style="background: #00B4A2;"></div>
+          <div class="lens-icon" style="color: #00B4A2;"><i class="ti ti-building-bank"></i></div>
+          <div class="lens-title">The Systems Thinker</div>
+          <div class="lens-desc">At Bloomberg, I led a full Linux OMS migration with zero downtime for 75+ traders, designed async stress testing infrastructure, and built capacity monitoring that changed how the team planned for scale.</div>
+          <ul class="lens-bullets">
+            <li>Zero-downtime migration of trading-critical infrastructure</li>
+            <li>Async stress test platform — shifted ops from reactive to proactive</li>
+            <li>Capacity monitoring vision: from idea to organisational adoption</li>
+          </ul>
+        </div>
+        <div class="lens-card">
+          <div class="lens-accent" style="background: #185FA5;"></div>
+          <div class="lens-icon" style="color: #185FA5;"><i class="ti ti-cloud"></i></div>
+          <div class="lens-title">The Platform Builder</div>
+          <div class="lens-desc">At Microsoft, I worked across Cosmos DB, Azure, and Bing Search — spanning globally distributed data, cloud infrastructure, and search relevance at enormous scale.</div>
+          <ul class="lens-bullets">
+            <li>Cosmos DB: consistency, partitioning, and distributed trade-offs</li>
+            <li>Bing Search: relevance models, user signals, product iteration</li>
+            <li>Azure infrastructure: cross-team delivery and platform strategy</li>
+          </ul>
+        </div>
+        <div class="lens-card">
+          <div class="lens-accent" style="background: #C9A84C;"></div>
+          <div class="lens-icon" style="color: #C9A84C;"><i class="ti ti-coins"></i></div>
+          <div class="lens-title">The Founder</div>
+          <div class="lens-desc">Credimate is my most PM-native work — discovering a real gap in India's informal lending market, building UX prototypes, and pitching investors. Full ownership from insight to roadmap.</div>
+          <ul class="lens-bullets">
+            <li>User discovery: informal credit in India's trust networks</li>
+            <li>Built UX prototype and customer journey maps from scratch</li>
+            <li>Investor pitch preparation and business model design</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <p class="section-label">Selected work</p>
+      <h2 class="section-title">Projects & impact</h2>
+      <p class="section-sub">From engineering achievements to product thinking.</p>
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag fintech">Fintech</span><span class="work-co">Co-founder</span></div>
+          <div class="work-title">Credimate — informal lending platform</div>
+          <div class="work-desc">Identified a trust gap in India's ₹25L Cr informal lending market. Built UX prototype, defined onboarding flows, and shaped the go-to-market targeting migrant workers and family lending circles.</div>
+          <div class="work-impact">→ Pitch-ready MVP with investor deck and customer journey map</div>
+        </div>
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag infra">Infrastructure</span><span class="work-co">Bloomberg LP</span></div>
+          <div class="work-title">Linux OMS migration — zero downtime</div>
+          <div class="work-desc">Led end-to-end migration of a trading-critical order management system to Linux, coordinating across infrastructure, QA, and trading desks. No downtime. No data loss. Shipped on time.</div>
+          <div class="work-impact">→ 75+ traders uninterrupted across cutover; new baseline for OMS reliability</div>
+        </div>
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag infra">Platform Strategy</span><span class="work-co">Bloomberg LP</span></div>
+          <div class="work-title">Capacity monitoring vision</div>
+          <div class="work-desc">Identified the absence of proactive capacity planning as a systemic risk. Championed a monitoring strategy that shifted the team from reactive incident response to forward-looking infrastructure planning.</div>
+          <div class="work-impact">→ Organisational adoption; reframed how the team thinks about scale</div>
+        </div>
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag infra">Engineering · PM</span><span class="work-co">Bloomberg LP</span></div>
+          <div class="work-title">Async stress test platform</div>
+          <div class="work-desc">Ported core components to asyncio and built a stress testing framework that simulated realistic trading load. Shifted QA from ad hoc checks to data-driven release confidence.</div>
+          <div class="work-impact">→ Enabled safe, frequent releases; changed the team's quality bar</div>
+        </div>
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag ai">Platform</span><span class="work-co">Microsoft</span></div>
+          <div class="work-title">Cosmos DB & Bing Search</div>
+          <div class="work-desc">Worked across globally distributed data infrastructure (Cosmos DB) and search relevance (Bing). Deepened understanding of consistency trade-offs, data modelling at scale, and product-driven feature iteration.</div>
+          <div class="work-impact">→ Cross-org exposure to platform strategy and large-scale user-facing systems</div>
+        </div>
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag research">MBA Research</span><span class="work-co">Saïd Business School</span></div>
+          <div class="work-title">Oxford MBA · Fintech & Markets</div>
+          <div class="work-desc">Fintech, Financial Trading, Entrepreneurial Finance, Strategic Leadership — including a £100m paper portfolio simulation and startup valuation for Mintlify's Series B.</div>
+          <div class="work-impact">→ Finance intuition layered onto engineering depth — rare in PM candidates</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <p class="section-label">Skills</p>
+      <h2 class="section-title">What I bring</h2>
+      <p class="section-sub">Technical depth meets product and finance intuition.</p>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-title">Product</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Roadmapping</span>
+            <span class="skill-tag">User research</span>
+            <span class="skill-tag">OKRs</span>
+            <span class="skill-tag">Prioritisation</span>
+            <span class="skill-tag">Stakeholder mgmt</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Technical</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Distributed systems</span>
+            <span class="skill-tag">APIs</span>
+            <span class="skill-tag">Cloud (Azure)</span>
+            <span class="skill-tag">System design</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Finance</div>
+          <div class="skill-tags">
+            <span class="skill-tag">OMS / trading systems</span>
+            <span class="skill-tag">Fintech regulation</span>
+            <span class="skill-tag">Quant modelling</span>
+            <span class="skill-tag">VC valuation</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Leadership</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Cross-functional delivery</span>
+            <span class="skill-tag">Founding team</span>
+            <span class="skill-tag">Oxford tutoring</span>
+            <span class="skill-tag">Public speaking</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-headline">Open to PM roles in London · Fintech preferred.</div>
+      <div class="contact-links">
+        <a href="mailto:your@email.com" class="contact-link teal">Email me</a>
+        <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">LinkedIn</a>
+        <a href="https://github.com/yourhandle" class="contact-link" target="_blank">GitHub</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-copy">© 2026 Shikha. Built with intent.</span>
+    <span class="footer-copy">Oxford MBA · Bloomberg · Microsoft · Credimate</span>
+  </div>
+</footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shikha — Product Manager Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F7F4EF;
+    --surface: #FFFFFF;
+    --surface2: #F0EDE8;
+    --ink: #0D1B2A;
+    --ink2: #4A5568;
+    --ink3: #718096;
+    --teal: #00B4A2;
+    --teal-light: #E1F5EE;
+    --teal-dark: #007A6E;
+    --gold: #C9A84C;
+    --blue: #185FA5;
+    --blue-light: #E6F1FB;
+    --purple: #3C3489;
+    --purple-light: #EEEDFE;
+    --border: rgba(13,27,42,0.1);
+    --border2: rgba(13,27,42,0.18);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(247,244,239,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0.85rem 0;
+  }
+  .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--ink2); text-decoration: none; font-weight: 500; }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* HERO */
+  .hero { padding: 5rem 0 3.5rem; }
+  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink3); margin-bottom: 1.2rem; }
+  .teal-bar { display: block; width: 40px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 1.6rem; }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; color: var(--ink); line-height: 1.05; margin-bottom: 0.4rem; }
+  .hero-tagline { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; font-style: italic; color: var(--ink2); margin-bottom: 1.5rem; }
+  .hero-desc { font-size: 15px; color: var(--ink2); max-width: 580px; margin-bottom: 2rem; line-height: 1.8; }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem; }
+  .pill { font-size: 12px; font-weight: 500; padding: 5px 13px; border-radius: 20px; border: 0.5px solid var(--border2); color: var(--ink2); background: var(--surface); }
+  .pill.teal { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-primary { font-size: 13px; font-weight: 600; padding: 10px 22px; border-radius: var(--radius-sm); background: var(--ink); color: var(--bg); border: none; cursor: pointer; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { background: #1a2f45; }
+  .btn-ghost { font-size: 13px; font-weight: 500; padding: 10px 22px; border-radius: var(--radius-sm); background: transparent; color: var(--ink); border: 0.5px solid var(--border2); cursor: pointer; text-decoration: none; display: inline-block; }
+  .btn-ghost:hover { background: var(--surface2); }
+
+  /* SECTIONS */
+  .section { padding: 3rem 0; border-top: 0.5px solid var(--border); }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 0.3rem; }
+  .section-sub { font-size: 14px; color: var(--ink3); margin-bottom: 2.2rem; }
+
+  /* STATS */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .stat-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--ink); }
+  .stat-lbl { font-size: 12px; color: var(--ink3); margin-top: 4px; line-height: 1.4; }
+
+  /* LENS CARDS */
+  .lens-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .lens-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; position: relative; overflow: hidden; }
+  .lens-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .lens-icon { font-size: 24px; margin-bottom: 0.9rem; }
+  .lens-title { font-size: 16px; font-weight: 600; margin-bottom: 0.5rem; }
+  .lens-desc { font-size: 13px; color: var(--ink2); line-height: 1.65; margin-bottom: 1.1rem; }
+  .lens-bullets { list-style: none; }
+  .lens-bullets li { font-size: 12px; color: var(--ink3); padding: 3px 0; display: flex; gap: 7px; }
+  .lens-bullets li::before { content: '→'; color: var(--teal); flex-shrink: 0; }
+
+  /* WORK CARDS */
+  .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .work-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.4rem; transition: border-color 0.2s, box-shadow 0.2s; }
+  .work-card:hover { border-color: var(--teal); box-shadow: 0 2px 16px rgba(0,180,162,0.08); }
+  .work-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; }
+  .work-tag { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 12px; }
+  .work-tag.fintech { background: var(--teal-light); color: var(--teal-dark); }
+  .work-tag.infra { background: var(--blue-light); color: var(--blue); }
+  .work-tag.ai { background: var(--purple-light); color: var(--purple); }
+  .work-tag.research { background: #FAEEDA; color: #854F0B; }
+  .work-co { font-size: 11px; color: var(--ink3); }
+  .work-title { font-size: 15px; font-weight: 600; margin-bottom: 0.5rem; }
+  .work-desc { font-size: 13px; color: var(--ink2); line-height: 1.65; margin-bottom: 1rem; }
+  .work-impact { font-size: 12px; font-weight: 500; color: var(--teal-dark); padding-top: 0.85rem; border-top: 0.5px solid var(--border); }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .skill-group { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 1.1rem; }
+  .skill-group-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink3); margin-bottom: 0.75rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .skill-tag { font-size: 11px; padding: 3px 8px; border-radius: 10px; border: 0.5px solid var(--border2); color: var(--ink2); }
+
+  /* CONTACT */
+  .contact-section { padding: 3rem 0; border-top: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-headline { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ink); }
+  .contact-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .contact-link { font-size: 13px; font-weight: 500; padding: 9px 18px; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); color: var(--ink2); text-decoration: none; }
+  .contact-link:hover { background: var(--surface2); color: var(--ink); }
+  .contact-link.teal { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
+
+  /* FOOTER */
+  footer { border-top: 0.5px solid var(--border); padding: 1.5rem 0; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 12px; color: var(--ink3); }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .hero-name { font-size: 36px; }
+    .lens-grid, .work-grid, .skills-grid, .stat-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .contact-section { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">Shikha</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <section class="hero" id="about">
+      <p class="hero-eyebrow">Product Manager · Oxford MBA · London</p>
+      <span class="teal-bar"></span>
+      <h1 class="hero-name">Shikha</h1>
+      <p class="hero-tagline">I built things. Now I decide what to build.</p>
+      <p class="hero-desc">Six years shipping production systems at Bloomberg and Microsoft — across order management, distributed databases, and search infrastructure. Now channelling that engineering depth into product strategy, backed by an Oxford MBA and a fintech startup I co-founded.</p>
+      <div class="pill-row">
+        <span class="pill teal">Fintech PM</span>
+        <span class="pill">Order Management Systems</span>
+        <span class="pill">Technical Architecture</span>
+        <span class="pill">Oxford MBA · Saïd</span>
+        <span class="pill">Credimate Co-founder</span>
+      </div>
+      <div class="btn-row">
+        <a href="#work" class="btn-primary">View my work</a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-num">6</div>
+          <div class="stat-lbl">Years in production engineering</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2</div>
+          <div class="stat-lbl">Global tech giants</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">75+</div>
+          <div class="stat-lbl">Traders on migrated OMS</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">Oxford</div>
+          <div class="stat-lbl">MBA, Saïd Business School</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="section-label">The case for PM</p>
+      <h2 class="section-title">Three lenses on my career</h2>
+      <p class="section-sub">Engineering depth — seen through a product eye.</p>
+      <div class="lens-grid">
+        <div class="lens-card">
+          <div class="lens-accent" style="background: #00B4A2;"></div>
+          <div class="lens-icon" style="color: #00B4A2;"><i class="ti ti-building-bank"></i></div>
+          <div class="lens-title">The Systems Thinker</div>
+          <div class="lens-desc">At Bloomberg, I led a full Linux OMS migration with zero downtime for 75+ traders, designed async stress testing infrastructure, and built capacity monitoring that changed how the team planned for scale.</div>
+          <ul class="lens-bullets">
+            <li>Zero-downtime migration of trading-critical infrastructure</li>
+            <li>Async stress test platform — shifted ops from reactive to proactive</li>
+            <li>Capacity monitoring vision: from idea to organisational adoption</li>
+          </ul>
+        </div>
+        <div class="lens-card">
+          <div class="lens-accent" style="background: #185FA5;"></div>
+          <div class="lens-icon" style="color: #185FA5;"><i class="ti ti-cloud"></i></div>
+          <div class="lens-title">The Platform Builder</div>
+          <div class="lens-desc">At Microsoft, I worked across Cosmos DB, Azure, and Bing Search — spanning globally distributed data, cloud infrastructure, and search relevance at enormous scale.</div>
+          <ul class="lens-bullets">
+            <li>Cosmos DB: consistency, partitioning, and distributed trade-offs</li>
+            <li>Bing Search: relevance models, user signals, product iteration</li>
+            <li>Azure infrastructure: cross-team delivery and platform strategy</li>
+          </ul>
+        </div>
+        <div class="lens-card">
+          <div class="lens-accent" style="background: #C9A84C;"></div>
+          <div class="lens-icon" style="color: #C9A84C;"><i class="ti ti-coins"></i></div>
+          <div class="lens-title">The Founder</div>
+          <div class="lens-desc">Credimate is my most PM-native work — discovering a real gap in India's informal lending market, building UX prototypes, and pitching investors. Full ownership from insight to roadmap.</div>
+          <ul class="lens-bullets">
+            <li>User discovery: informal credit in India's trust networks</li>
+            <li>Built UX prototype and customer journey maps from scratch</li>
+            <li>Investor pitch preparation and business model design</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <p class="section-label">Selected work</p>
+      <h2 class="section-title">Projects & impact</h2>
+      <p class="section-sub">From engineering achievements to product thinking.</p>
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag fintech">Fintech</span><span class="work-co">Co-founder</span></div>
+          <div class="work-title">Credimate — informal lending platform</div>
+          <div class="work-desc">Identified a trust gap in India's ₹25L Cr informal lending market. Built UX prototype, defined onboarding flows, and shaped the go-to-market targeting migrant workers and family lending circles.</div>
+          <div class="work-impact">→ Pitch-ready MVP with investor deck and customer journey map</div>
+        </div>
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag infra">Infrastructure</span><span class="work-co">Bloomberg LP</span></div>
+          <div class="work-title">Linux OMS migration — zero downtime</div>
+          <div class="work-desc">Led end-to-end migration of a trading-critical order management system to Linux, coordinating across infrastructure, QA, and trading desks. No downtime. No data loss. Shipped on time.</div>
+          <div class="work-impact">→ 75+ traders uninterrupted across cutover; new baseline for OMS reliability</div>
+        </div>
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag infra">Platform Strategy</span><span class="work-co">Bloomberg LP</span></div>
+          <div class="work-title">Capacity monitoring vision</div>
+          <div class="work-desc">Identified the absence of proactive capacity planning as a systemic risk. Championed a monitoring strategy that shifted the team from reactive incident response to forward-looking infrastructure planning.</div>
+          <div class="work-impact">→ Organisational adoption; reframed how the team thinks about scale</div>
+        </div>
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag infra">Engineering · PM</span><span class="work-co">Bloomberg LP</span></div>
+          <div class="work-title">Async stress test platform</div>
+          <div class="work-desc">Ported core components to asyncio and built a stress testing framework that simulated realistic trading load. Shifted QA from ad hoc checks to data-driven release confidence.</div>
+          <div class="work-impact">→ Enabled safe, frequent releases; changed the team's quality bar</div>
+        </div>
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag ai">Platform</span><span class="work-co">Microsoft</span></div>
+          <div class="work-title">Cosmos DB & Bing Search</div>
+          <div class="work-desc">Worked across globally distributed data infrastructure (Cosmos DB) and search relevance (Bing). Deepened understanding of consistency trade-offs, data modelling at scale, and product-driven feature iteration.</div>
+          <div class="work-impact">→ Cross-org exposure to platform strategy and large-scale user-facing systems</div>
+        </div>
+        <div class="work-card">
+          <div class="work-meta"><span class="work-tag research">MBA Research</span><span class="work-co">Saïd Business School</span></div>
+          <div class="work-title">Oxford MBA · Fintech & Markets</div>
+          <div class="work-desc">Fintech, Financial Trading, Entrepreneurial Finance, Strategic Leadership — including a £100m paper portfolio simulation and startup valuation for Mintlify's Series B.</div>
+          <div class="work-impact">→ Finance intuition layered onto engineering depth — rare in PM candidates</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <p class="section-label">Skills</p>
+      <h2 class="section-title">What I bring</h2>
+      <p class="section-sub">Technical depth meets product and finance intuition.</p>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-title">Product</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Roadmapping</span>
+            <span class="skill-tag">User research</span>
+            <span class="skill-tag">OKRs</span>
+            <span class="skill-tag">Prioritisation</span>
+            <span class="skill-tag">Stakeholder mgmt</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Technical</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Distributed systems</span>
+            <span class="skill-tag">APIs</span>
+            <span class="skill-tag">Cloud (Azure)</span>
+            <span class="skill-tag">System design</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Finance</div>
+          <div class="skill-tags">
+            <span class="skill-tag">OMS / trading systems</span>
+            <span class="skill-tag">Fintech regulation</span>
+            <span class="skill-tag">Quant modelling</span>
+            <span class="skill-tag">VC valuation</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">Leadership</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Cross-functional delivery</span>
+            <span class="skill-tag">Founding team</span>
+            <span class="skill-tag">Oxford tutoring</span>
+            <span class="skill-tag">Public speaking</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-headline">Open to PM roles in London · Fintech preferred.</div>
+      <div class="contact-links">
+        <a href="mailto:your@email.com" class="contact-link teal">Email me</a>
+        <a href="https://linkedin.com/in/shikhadahiya" class="contact-link" target="_blank">LinkedIn</a>
+        <a href="https://github.com/yourhandle" class="contact-link" target="_blank">GitHub</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-copy">© 2026 Shikha. Built with intent.</span>
+    <span class="footer-copy">Oxford MBA · Bloomberg · Microsoft · Credimate</span>
+  </div>
+</footer>
+
+</body>
+</html>
