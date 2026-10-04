@@ -83,6 +83,18 @@ h2 { font-size: clamp(40px, 5.4vw, 72px); line-height: 1.04; letter-spacing: -0.
 .cs { margin: 18px 0 0; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 14px 20px; padding-top: 18px; border-top: 1px solid var(--line); }
 .cs dt { color: var(--muted); font-size: 15px; }
 .cs dd { margin: 0; font-size: 15px; }
+.role { margin-top: 56px; display: flex; flex-direction: column; }
+.role-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.role-head h3 { font-size: clamp(26px, 3vw, 34px); letter-spacing: -0.04em; }
+.role-head .yrs { color: var(--muted); font-size: 15px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.role-title { color: var(--muted); font-size: 17px; margin-top: 2px; }
+.wins { margin: 18px 0 0; padding: 0; list-style: none; }
+.wins li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 4px 24px; padding-block: 18px; border-top: 1px solid var(--line); }
+.wins .num { font-size: 22px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.wins h4 { margin: 0; font-size: 17px; font-weight: 600; }
+.wins p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+.wins .more { margin-top: 8px; }
+.wins .more summary { font-size: 15px; }
 .also { margin: 28px 0 0; color: var(--muted); font-size: 15px; max-width: 58ch; }
 .rows .what { font-size: 15px; }
 #sd-anchor { width: 200px; height: 200px; max-width: 60vw; max-height: 60vw; margin-bottom: 24px; }
@@ -103,7 +115,8 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
   #face-anchor { max-width: 380px; }
   .scene { min-height: 0; padding-block: 96px; }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 20px; margin-top: 48px; }
-  .case { padding: 24px; }
+  .wins li { grid-template-columns: minmax(0, 1fr); }
+  .role { margin-top: 44px; }
   .cs { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .cs dd { padding-bottom: 10px; }
                 .rows .org { font-size: 21px; }
@@ -123,9 +136,9 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
 <header class="bar">
   <span class="me">Shikha Dahiya</span>
   <nav aria-label="Sections">
-    <a href="#cases">Work</a>
-    <a href="#speaking">Speaking</a>
-    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -158,61 +171,89 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
   </dl>
 </section>
 
-<section class="scene" data-scene="2" id="cases">
+<section class="scene" data-scene="2" id="work">
   <div class="left-col">
-    <h2>Case studies.</h2>
-    <p class="sub">Bloomberg, 2022 – 2025.</p>
-    <div class="cases">
-      <article class="case">
-        <div class="eyebrow">Bloomberg · led the work</div>
-        <h3>OMS capacity: 750 → 2,000 concurrent orders</h3>
-        <p>A capacity ceiling was blocking a $4M enterprise client. I found the bottleneck, wrote the business case and led a London–New York team to raise throughput 2.7×, enabling the deal.</p>
-        <details class="more">
-          <summary>Read the case study</summary>
-          <dl class="cs">
+    <h2>Work.</h2>
+    <p class="sub">Every role, and what came of it.</p>
+
+    <article class="role">
+      <div class="role-head"><h3>Credimate</h3><span class="yrs">2026 – now</span></div>
+      <div class="role-title">Co-Founder &amp; Product Manager · Oxford</div>
+      <ul class="wins">
+        <li><span class="num">100M+</span><div><h4>AI lending for informal borrowers</h4><p>Trust scoring and repayment tracking for India's informal borrowers, taken from user research to investor pitch.</p></div></li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <div class="role-head"><h3>Bloomberg</h3><span class="yrs">2022 – 2025</span></div>
+      <div class="role-title">Senior Software Engineer · London</div>
+      <ul class="wins">
+        <li><span class="num">$4M</span><div><h4>OMS capacity</h4><p>Raised concurrent orders from 750 to 2,000, leading a London–New York team, which enabled a $4M client deal.</p>
+          <details class="more"><summary>Read more</summary><dl class="cs">
             <dt>Problem</dt><dd>Order processing capacity limited how fast Bloomberg could onboard enterprise clients, and a $4M deal depended on raising it.</dd>
             <dt>My role</dt><dd>Defined the solution, built the business case and led a cross-functional team across London and New York.</dd>
-            <dt>Result</dt><dd>Concurrent order capacity rose from 750 to 2,000, enabling the $4M client deal.</dd>
-          </dl>
-        </details>
-      </article>
-      <article class="case">
-        <div class="eyebrow">Bloomberg · defined and led</div>
-        <h3>QA automation: 100% → 5% manual testing</h3>
-        <p>Every release depended on manual QA. I used data to choose which workflows to automate first and brought QA, Product and Engineering in three offices together to ship the OTE UI automation framework.</p>
-        <details class="more">
-          <summary>Read the case study</summary>
-          <dl class="cs">
+            <dt>Result</dt><dd>Capacity rose 2.7×, from 750 to 2,000 concurrent orders, enabling the deal.</dd>
+          </dl></details></div></li>
+        <li><span class="num">5%</span><div><h4>QA automation</h4><p>Shipped the OTE UI automation framework across three offices, cutting manual QA from 100% to 5%. Adopted org-wide.</p>
+          <details class="more"><summary>Read more</summary><dl class="cs">
             <dt>Problem</dt><dd>Complete reliance on manual QA was slowing releases and eroding confidence in each one.</dd>
             <dt>My role</dt><dd>Defined the product vision, set priorities from usage data, and coordinated QA, Product and Engineering across three offices.</dd>
             <dt>Result</dt><dd>Manual QA dependency fell from 100% to 5%, and the framework was adopted across the organisation.</dd>
-          </dl>
-        </details>
-      </article>
-    </div>
-    <p class="also">Also at Bloomberg: 50% lower OMS latency, a capacity measurement framework agreed at a 60–70 person engineering summit, and a client trading simulation that is now part of new-hire onboarding.</p>
+          </dl></details></div></li>
+        <li><span class="num">−50%</span><div><h4>OMS performance</h4><p>Architecture changes and cache optimisations cut latency by 50% and enrichment and validation time by 27%.</p></div></li>
+        <li><span class="num">60–70 leaders</span><div><h4>Capacity monitoring</h4><p>Defined how the OMS measures capacity and won over 60–70 engineering leaders at an org-wide summit.</p></div></li>
+        <li><span class="num">3–4 teams</span><div><h4>PM Cash Ladder integration</h4><p>Product and technical lead for an integration across 3–4 teams in London and New York, shipped to portfolio management clients.</p></div></li>
+        <li><span class="num">1,000s</span><div><h4>Developer productivity</h4><p>Ported Bloomberg's most-used internal Python library to asyncio, removing a performance ceiling for thousands of engineers.</p></div></li>
+        <li><span class="num">2× a year</span><div><h4>A Day in the Life of an AIM Client</h4><p>Co-created a trading simulation on live Bloomberg screens. It now runs twice a year and is part of new-hire onboarding.</p></div></li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <div class="role-head"><h3>Microsoft Azure</h3><span class="yrs">2021 – 2022</span></div>
+      <div class="role-title">Software Performance Engineer, Cosmos DB · Hyderabad</div>
+      <ul class="wins">
+        <li><span class="num">$50M</span><div><h4>Azure networking</h4><p>Found scalability issues in a pre-release Azure API and delivered a network configuration that saves $50M a year.</p></div></li>
+        <li><span class="num">10ms</span><div><h4>Cosmos DB performance</h4><p>Owned the regression pipeline protecting the 10ms latency SLA that set Cosmos DB apart.</p></div></li>
+        <li><span class="num">Pre-launch</span><div><h4>Scalability testing</h4><p>Designed experiments for new API releases, pairing automated benchmarks with statistical analysis.</p></div></li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <div class="role-head"><h3>Microsoft Bing</h3><span class="yrs">2019 – 2021</span></div>
+      <div class="role-title">Software Engineer · Hyderabad</div>
+      <ul class="wins">
+        <li><span class="num">1 of 7,000</span><div><h4>Microsoft Hackathon 2020</h4><p>Won the prize for best inclusive project, for a name-pronunciation feature.</p></div></li>
+        <li><span class="num" aria-hidden="true"></span><div><h4>Enterprise search</h4><p>Co-designed Microsoft Search experiences for acronyms, bookmarks and floor plans.</p></div></li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <div class="role-head"><h3>Microsoft Bing Local</h3><span class="yrs">2018</span></div>
+      <div class="role-title">Data Science Intern · Hyderabad</div>
+      <ul class="wins">
+        <li><span class="num">97.3%</span><div><h4>Geolocation correction</h4><p>An ML model that fixed location data for ~1.2M places at 97.3% precision, which earned a pre-placement offer.</p></div></li>
+      </ul>
+    </article>
   </div>
 </section>
 
-<section class="scene" data-scene="3" id="speaking">
+<section class="scene" data-scene="3" id="leadership">
   <div class="left-col">
-    <h2>Speaking and recognition.</h2>
+    <h2>Leadership and recognition.</h2>
     <ul class="rows">
+      <li><span class="org">WAIM Mentorship &amp; Leadership</span><span class="what">Founded and led a programme for 100+ women across London and New York at Bloomberg</span><span class="yrs">2022 – 25</span></li>
       <li><span class="org">From Silicon to Sentience</span><span class="what">AI literacy lecture to ~100 Year 12 students, OxNet, Pembroke College, Oxford</span><span class="yrs">2026</span></li>
       <li><span class="org">Oxford Union</span><span class="what">Debating during the Oxford MBA</span><span class="yrs">2025 – 26</span></li>
       <li><span class="org">Tech Women Celebration</span><span class="what">Named on the 2025 list</span><span class="yrs">2025</span></li>
-      <li><span class="org">Microsoft Hackathon</span><span class="what">Won the prize for best inclusive project out of 7,000, for a name-pronunciation feature</span><span class="yrs">2020</span></li>
     </ul>
   </div>
 </section>
 
-<section class="scene" data-scene="4" id="about">
+<section class="scene" data-scene="4" id="education">
   <div class="left-col">
-    <h2>About.</h2>
+    <h2>Education.</h2>
     <ul class="rows">
       <li><span class="org">University of Oxford</span><span class="what">MBA, Saïd Business School. FinTech, AI in Finance and a £100M paper portfolio.</span><span class="yrs">2026</span></li>
-      <li><span class="org">Credimate</span><span class="what">Co-founded an AI trust-scoring app for India's informal borrowers.</span><span class="yrs">2026</span></li>
-      <li><span class="org">Microsoft</span><span class="what">Bing Search, then Cosmos DB and Azure, where a network configuration I delivered saves $50M a year.</span><span class="yrs">2019 – 2022</span></li>
       <li><span class="org">Delhi Technological University</span><span class="what">B.Tech, Computer Engineering.</span><span class="yrs">2019</span></li>
     </ul>
   </div>
@@ -481,9 +522,9 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
       return [b.side, 0.12];
     };
     scenes[1] = fieldScene();
-    scenes[2] = sampleScene(textShape('</>', 0.34), ...sideOf('#cases .left-col'));
-    scenes[3] = sampleScene(textShape('★', 0.7), ...sideOf('#speaking .left-col'));
-    scenes[4] = sampleScene(textShape('MBA', 0.3), ...sideOf('#about .left-col'));
+    scenes[2] = sampleScene(textShape('</>', 0.34), ...sideOf('#work .left-col'));
+    scenes[3] = sampleScene(textShape('★', 0.7), ...sideOf('#leadership .left-col'));
+    scenes[4] = sampleScene(textShape('MBA', 0.3), ...sideOf('#education .left-col'));
     buildContact();
     measureCenters();
 
