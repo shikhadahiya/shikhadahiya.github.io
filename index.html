@@ -1,691 +1,595 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shikha — Product Manager Portfolio</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Shikha Dahiya, Technical Product Manager in London. Oxford MBA, formerly Bloomberg and Microsoft, co-founder of Credimate.">
+<title>Shikha Dahiya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;700&display=swap">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #F7F4EF;
-    --surface: #FFFFFF;
-    --surface2: #F0EDE8;
-    --ink: #0D1B2A;
-    --ink2: #4A5568;
-    --ink3: #718096;
-    --teal: #00B4A2;
-    --teal-light: #E1F5EE;
-    --teal-dark: #007A6E;
-    --gold: #C9A84C;
-    --blue: #185FA5;
-    --blue-light: #E6F1FB;
-    --purple: #3C3489;
-    --purple-light: #EEEDFE;
-    --border: rgba(13,27,42,0.1);
-    --border2: rgba(13,27,42,0.18);
-    --radius: 12px;
-    --radius-sm: 8px;
-  }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-  .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+/* Layout: one idea per screen on black; the portrait of bits is the only ornament. */
+:root {
+  --bg: #000000;
+  --surface: #141416;
+  --line: #2A2A2D;
+  --fg: #F5F5F7;
+  --muted: #86868B;
+  --link: #2997FF;
+  --sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+[hidden] { display: none !important; }
+html { background: var(--bg); scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 17px; line-height: 1.5; letter-spacing: -0.01em; -webkit-font-smoothing: antialiased; }
+#bits { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+main { position: relative; z-index: 1; padding-inline: 22px; }
+.wrap { max-width: 1120px; margin: 0 auto; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { margin: 0; font-weight: 600; text-wrap: balance; }
 
-  /* NAV */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(247,244,239,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 0.5px solid var(--border);
-    padding: 0.85rem 0;
-  }
-  .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-  .nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); text-decoration: none; }
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-  .nav-links a { font-size: 13px; color: var(--ink2); text-decoration: none; font-weight: 500; }
-  .nav-links a:hover { color: var(--teal); }
+.bar { display: flex; justify-content: space-between; align-items: center; gap: 12px 28px; flex-wrap: wrap; padding-block: 20px; font-size: 14px; }
+.bar .me { font-weight: 600; color: var(--fg); }
+.bar nav { display: flex; gap: 28px; flex-wrap: wrap; }
+.bar nav a { color: var(--muted); }
+.bar nav a:hover { color: var(--fg); text-decoration: none; }
 
-  /* HERO */
-  .hero { padding: 5rem 0 3.5rem; }
-  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink3); margin-bottom: 1.2rem; }
-  .teal-bar { display: block; width: 40px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 1.6rem; }
-  .hero-name { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; color: var(--ink); line-height: 1.05; margin-bottom: 0.4rem; }
-  .hero-tagline { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; font-style: italic; color: var(--ink2); margin-bottom: 1.5rem; }
-  .hero-desc { font-size: 15px; color: var(--ink2); max-width: 580px; margin-bottom: 2rem; line-height: 1.8; }
-  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem; }
-  .pill { font-size: 12px; font-weight: 500; padding: 5px 13px; border-radius: 20px; border: 0.5px solid var(--border2); color: var(--ink2); background: var(--surface); }
-  .pill.teal { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
-  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .btn-primary { font-size: 13px; font-weight: 600; padding: 10px 22px; border-radius: var(--radius-sm); background: var(--ink); color: var(--bg); border: none; cursor: pointer; text-decoration: none; display: inline-block; }
-  .btn-primary:hover { background: #1a2f45; }
-  .btn-ghost { font-size: 13px; font-weight: 500; padding: 10px 22px; border-radius: var(--radius-sm); background: transparent; color: var(--ink); border: 0.5px solid var(--border2); cursor: pointer; text-decoration: none; display: inline-block; }
-  .btn-ghost:hover { background: var(--surface2); }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px 64px; align-items: center; min-height: 680px; padding-block: 24px 80px; }
+.hero-text { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+h1 { font-size: clamp(56px, 7.4vw, 104px); line-height: 0.95; letter-spacing: -0.05em; }
+.kicker { margin: 0; font-size: clamp(21px, 2.2vw, 28px); font-weight: 600; letter-spacing: -0.02em; }
+.lede { margin: 0; max-width: 30ch; font-size: clamp(19px, 1.8vw, 24px); line-height: 1.35; color: var(--muted); letter-spacing: -0.02em; }
+.links { display: flex; flex-wrap: wrap; gap: 12px 32px; padding-top: 8px; font-size: 19px; }
+.face-col { display: flex; flex-direction: column; align-items: center; gap: 18px; min-width: 0; }
+#face-anchor { width: 100%; max-width: 540px; aspect-ratio: 1; }
+.keywords { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; font-size: 17px; font-weight: 500; }
+.keywords li + li::before { content: '·'; color: var(--muted); padding: 0 0.7em; }
+.kw-sub { margin-top: -10px; font-size: 14px; color: var(--muted); }
 
-  /* SECTIONS */
-  .section { padding: 3rem 0; border-top: 0.5px solid var(--border); }
-  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 0.3rem; }
-  .section-sub { font-size: 14px; color: var(--ink3); margin-bottom: 2.2rem; }
+.scene { min-height: 86vh; display: flex; flex-direction: column; justify-content: center; padding-block: 120px; }
+.center { text-align: center; align-items: center; }
+h2 { font-size: clamp(40px, 5.4vw, 72px); line-height: 1.04; letter-spacing: -0.045em; }
+.sub { margin: 12px 0 0; font-size: clamp(19px, 2vw, 26px); color: var(--muted); letter-spacing: -0.02em; }
+.stats { margin: 72px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; width: 100%; max-width: 980px; }
+.stats div { display: flex; flex-direction: column; gap: 6px; }
+.stats dt { font-size: clamp(56px, 7vw, 96px); font-weight: 600; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.stats dd { margin: 0; font-size: 19px; color: var(--muted); }
 
-  /* STATS */
-  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .stat-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; text-align: center; }
-  .stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--ink); }
-  .stat-lbl { font-size: 12px; color: var(--ink3); margin-top: 4px; line-height: 1.4; }
+.work-head { margin-bottom: 56px; }
+.tabs-wrap { width: 100%; max-width: 760px; display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 48px; align-items: start; }
+.tabs { display: flex; flex-direction: column; gap: 4px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 40px); }
+.tab { min-height: 48px; padding: 0; background: none; border: none; font: inherit; font-size: 24px; font-weight: 600; letter-spacing: -0.03em; color: #48484A; text-align: left; cursor: pointer; transition: color .2s; }
+.tab:hover { color: var(--muted); }
+.tab[aria-selected="true"] { color: var(--fg); }
+.panels { min-width: 0; min-height: 440px; }
+.panel { animation: fade .35s ease-out; }
+@keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.rows { margin: 0; padding: 0; list-style: none; }
+.rows li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; align-items: baseline; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.rows li:first-child { padding-top: 6px; }
+.rows .org { font-size: 24px; font-weight: 600; letter-spacing: -0.03em; }
+.rows .what { grid-column: 1; color: var(--muted); }
+.rows .yrs { grid-column: 2; grid-row: 1; color: var(--muted); font-size: 15px; font-variant-numeric: tabular-nums; }
+.note { margin: 20px 0 0; font-size: 15px; color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.card { background: var(--surface); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 8px; }
+.card .metric { font-size: clamp(36px, 4vw, 48px); font-weight: 600; letter-spacing: -0.05em; line-height: 1; padding-bottom: 10px; }
+.card h3 { font-size: 17px; }
+.card p { margin: 0; font-size: 15px; color: var(--muted); }
 
-  /* LENS CARDS */
-  .lens-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .lens-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; position: relative; overflow: hidden; }
-  .lens-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-  .lens-icon { font-size: 24px; margin-bottom: 0.9rem; }
-  .lens-title { font-size: 16px; font-weight: 600; margin-bottom: 0.5rem; }
-  .lens-desc { font-size: 13px; color: var(--ink2); line-height: 1.65; margin-bottom: 1.1rem; }
-  .lens-bullets { list-style: none; }
-  .lens-bullets li { font-size: 12px; color: var(--ink3); padding: 3px 0; display: flex; gap: 7px; }
-  .lens-bullets li::before { content: '→'; color: var(--teal); flex-shrink: 0; }
+#sd-anchor { width: 200px; height: 200px; max-width: 60vw; max-height: 60vw; margin-bottom: 24px; }
+.email { margin-top: 40px; font-size: clamp(22px, 3vw, 34px); font-weight: 600; letter-spacing: -0.03em; user-select: all; overflow-wrap: anywhere; }
+.pill { margin-top: 18px; min-height: 44px; padding: 0 22px; border-radius: 999px; border: none; background: var(--fg); color: var(--bg); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; }
+.pill:hover { background: #FFFFFF; }
+.contact .links { justify-content: center; padding-top: 28px; }
+footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: var(--muted); }
 
-  /* WORK CARDS */
-  .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .work-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.4rem; transition: border-color 0.2s, box-shadow 0.2s; }
-  .work-card:hover { border-color: var(--teal); box-shadow: 0 2px 16px rgba(0,180,162,0.08); }
-  .work-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; }
-  .work-tag { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 12px; }
-  .work-tag.fintech { background: var(--teal-light); color: var(--teal-dark); }
-  .work-tag.infra { background: var(--blue-light); color: var(--blue); }
-  .work-tag.ai { background: var(--purple-light); color: var(--purple); }
-  .work-tag.research { background: #FAEEDA; color: #854F0B; }
-  .work-co { font-size: 11px; color: var(--ink3); }
-  .work-title { font-size: 15px; font-weight: 600; margin-bottom: 0.5rem; }
-  .work-desc { font-size: 13px; color: var(--ink2); line-height: 1.65; margin-bottom: 1rem; }
-  .work-impact { font-size: 12px; font-weight: 500; color: var(--teal-dark); padding-top: 0.85rem; border-top: 0.5px solid var(--border); }
-
-  /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .skill-group { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 1.1rem; }
-  .skill-group-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink3); margin-bottom: 0.75rem; }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .skill-tag { font-size: 11px; padding: 3px 8px; border-radius: 10px; border: 0.5px solid var(--border2); color: var(--ink2); }
-
-  /* CONTACT */
-  .contact-section { padding: 3rem 0; border-top: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
-  .contact-headline { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ink); }
-  .contact-links { display: flex; gap: 10px; flex-wrap: wrap; }
-  .contact-link { font-size: 13px; font-weight: 500; padding: 9px 18px; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); color: var(--ink2); text-decoration: none; }
-  .contact-link:hover { background: var(--surface2); color: var(--ink); }
-  .contact-link.teal { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
-
-  /* FOOTER */
-  footer { border-top: 0.5px solid var(--border); padding: 1.5rem 0; }
-  .footer-inner { display: flex; justify-content: space-between; align-items: center; }
-  .footer-copy { font-size: 12px; color: var(--ink3); }
-
-  /* RESPONSIVE */
-  @media (max-width: 700px) {
-    .hero-name { font-size: 36px; }
-    .lens-grid, .work-grid, .skills-grid, .stat-row { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .contact-section { flex-direction: column; align-items: flex-start; }
-  }
+@media (max-width: 859px) {
+  .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-block: 8px 72px; text-align: center; }
+  .hero-text { align-items: center; }
+  .links { justify-content: center; }
+  .face-col { order: -1; }
+  #face-anchor { max-width: 380px; }
+  .scene { min-height: 0; padding-block: 96px; }
+  .stats { grid-template-columns: minmax(0, 1fr); gap: 36px; margin-top: 48px; }
+  .work-head { margin-bottom: 28px; }
+  .tabs-wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .tabs { position: static; flex-direction: row; background: var(--surface); border-radius: 999px; padding: 4px; gap: 0; }
+  .tab { flex: 1 1 0; min-height: 40px; border-radius: 999px; font-size: 15px; letter-spacing: -0.01em; text-align: center; color: var(--muted); }
+  .tab[aria-selected="true"] { background: #3A3A3C; color: var(--fg); }
+  .panels { min-height: 0; }
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .rows .org { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .panel { animation: none; }
+}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="container nav-inner">
-    <a href="#" class="nav-logo">Shikha</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+<canvas id="bits" aria-hidden="true"></canvas>
 
 <main>
-  <div class="container">
+<div class="wrap">
 
-    <section class="hero" id="about">
-      <p class="hero-eyebrow">Product Manager · Oxford MBA · London</p>
-      <span class="teal-bar"></span>
-      <h1 class="hero-name">Shikha</h1>
-      <p class="hero-tagline">I built things. Now I decide what to build.</p>
-      <p class="hero-desc">Six years shipping production systems at Bloomberg and Microsoft — across order management, distributed databases, and search infrastructure. Now channelling that engineering depth into product strategy, backed by an Oxford MBA and a fintech startup I co-founded.</p>
-      <div class="pill-row">
-        <span class="pill teal">Fintech PM</span>
-        <span class="pill">Order Management Systems</span>
-        <span class="pill">Technical Architecture</span>
-        <span class="pill">Oxford MBA · Saïd</span>
-        <span class="pill">Credimate Co-founder</span>
-      </div>
-      <div class="btn-row">
-        <a href="#work" class="btn-primary">View my work</a>
-        <a href="#contact" class="btn-ghost">Get in touch</a>
-      </div>
-    </section>
+<header class="bar">
+  <span class="me">Shikha Dahiya</span>
+  <nav aria-label="Sections">
+    <a href="#work" data-open="experience">Experience</a>
+    <a href="#work" data-open="projects">Projects</a>
+    <a href="#work" data-open="education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <section class="section">
-      <div class="stat-row">
-        <div class="stat-card">
-          <div class="stat-num">6</div>
-          <div class="stat-lbl">Years in production engineering</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">2</div>
-          <div class="stat-lbl">Global tech giants</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">75+</div>
-          <div class="stat-lbl">Traders on migrated OMS</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">Oxford</div>
-          <div class="stat-lbl">MBA, Saïd Business School</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <p class="section-label">The case for PM</p>
-      <h2 class="section-title">Three lenses on my career</h2>
-      <p class="section-sub">Engineering depth — seen through a product eye.</p>
-      <div class="lens-grid">
-        <div class="lens-card">
-          <div class="lens-accent" style="background: #00B4A2;"></div>
-          <div class="lens-icon" style="color: #00B4A2;"><i class="ti ti-building-bank"></i></div>
-          <div class="lens-title">The Systems Thinker</div>
-          <div class="lens-desc">At Bloomberg, I led a full Linux OMS migration with zero downtime for 75+ traders, designed async stress testing infrastructure, and built capacity monitoring that changed how the team planned for scale.</div>
-          <ul class="lens-bullets">
-            <li>Zero-downtime migration of trading-critical infrastructure</li>
-            <li>Async stress test platform — shifted ops from reactive to proactive</li>
-            <li>Capacity monitoring vision: from idea to organisational adoption</li>
-          </ul>
-        </div>
-        <div class="lens-card">
-          <div class="lens-accent" style="background: #185FA5;"></div>
-          <div class="lens-icon" style="color: #185FA5;"><i class="ti ti-cloud"></i></div>
-          <div class="lens-title">The Platform Builder</div>
-          <div class="lens-desc">At Microsoft, I worked across Cosmos DB, Azure, and Bing Search — spanning globally distributed data, cloud infrastructure, and search relevance at enormous scale.</div>
-          <ul class="lens-bullets">
-            <li>Cosmos DB: consistency, partitioning, and distributed trade-offs</li>
-            <li>Bing Search: relevance models, user signals, product iteration</li>
-            <li>Azure infrastructure: cross-team delivery and platform strategy</li>
-          </ul>
-        </div>
-        <div class="lens-card">
-          <div class="lens-accent" style="background: #C9A84C;"></div>
-          <div class="lens-icon" style="color: #C9A84C;"><i class="ti ti-coins"></i></div>
-          <div class="lens-title">The Founder</div>
-          <div class="lens-desc">Credimate is my most PM-native work — discovering a real gap in India's informal lending market, building UX prototypes, and pitching investors. Full ownership from insight to roadmap.</div>
-          <ul class="lens-bullets">
-            <li>User discovery: informal credit in India's trust networks</li>
-            <li>Built UX prototype and customer journey maps from scratch</li>
-            <li>Investor pitch preparation and business model design</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="work">
-      <p class="section-label">Selected work</p>
-      <h2 class="section-title">Projects & impact</h2>
-      <p class="section-sub">From engineering achievements to product thinking.</p>
-      <div class="work-grid">
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag fintech">Fintech</span><span class="work-co">Co-founder</span></div>
-          <div class="work-title">Credimate — informal lending platform</div>
-          <div class="work-desc">Identified a trust gap in India's ₹25L Cr informal lending market. Built UX prototype, defined onboarding flows, and shaped the go-to-market targeting migrant workers and family lending circles.</div>
-          <div class="work-impact">→ Pitch-ready MVP with investor deck and customer journey map</div>
-        </div>
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag infra">Infrastructure</span><span class="work-co">Bloomberg LP</span></div>
-          <div class="work-title">Linux OMS migration — zero downtime</div>
-          <div class="work-desc">Led end-to-end migration of a trading-critical order management system to Linux, coordinating across infrastructure, QA, and trading desks. No downtime. No data loss. Shipped on time.</div>
-          <div class="work-impact">→ 75+ traders uninterrupted across cutover; new baseline for OMS reliability</div>
-        </div>
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag infra">Platform Strategy</span><span class="work-co">Bloomberg LP</span></div>
-          <div class="work-title">Capacity monitoring vision</div>
-          <div class="work-desc">Identified the absence of proactive capacity planning as a systemic risk. Championed a monitoring strategy that shifted the team from reactive incident response to forward-looking infrastructure planning.</div>
-          <div class="work-impact">→ Organisational adoption; reframed how the team thinks about scale</div>
-        </div>
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag infra">Engineering · PM</span><span class="work-co">Bloomberg LP</span></div>
-          <div class="work-title">Async stress test platform</div>
-          <div class="work-desc">Ported core components to asyncio and built a stress testing framework that simulated realistic trading load. Shifted QA from ad hoc checks to data-driven release confidence.</div>
-          <div class="work-impact">→ Enabled safe, frequent releases; changed the team's quality bar</div>
-        </div>
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag ai">Platform</span><span class="work-co">Microsoft</span></div>
-          <div class="work-title">Cosmos DB & Bing Search</div>
-          <div class="work-desc">Worked across globally distributed data infrastructure (Cosmos DB) and search relevance (Bing). Deepened understanding of consistency trade-offs, data modelling at scale, and product-driven feature iteration.</div>
-          <div class="work-impact">→ Cross-org exposure to platform strategy and large-scale user-facing systems</div>
-        </div>
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag research">MBA Research</span><span class="work-co">Saïd Business School</span></div>
-          <div class="work-title">Oxford MBA · Fintech & Markets</div>
-          <div class="work-desc">Fintech, Financial Trading, Entrepreneurial Finance, Strategic Leadership — including a £100m paper portfolio simulation and startup valuation for Mintlify's Series B.</div>
-          <div class="work-impact">→ Finance intuition layered onto engineering depth — rare in PM candidates</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="skills">
-      <p class="section-label">Skills</p>
-      <h2 class="section-title">What I bring</h2>
-      <p class="section-sub">Technical depth meets product and finance intuition.</p>
-      <div class="skills-grid">
-        <div class="skill-group">
-          <div class="skill-group-title">Product</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Roadmapping</span>
-            <span class="skill-tag">User research</span>
-            <span class="skill-tag">OKRs</span>
-            <span class="skill-tag">Prioritisation</span>
-            <span class="skill-tag">Stakeholder mgmt</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Technical</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Distributed systems</span>
-            <span class="skill-tag">APIs</span>
-            <span class="skill-tag">Cloud (Azure)</span>
-            <span class="skill-tag">System design</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Finance</div>
-          <div class="skill-tags">
-            <span class="skill-tag">OMS / trading systems</span>
-            <span class="skill-tag">Fintech regulation</span>
-            <span class="skill-tag">Quant modelling</span>
-            <span class="skill-tag">VC valuation</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Leadership</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Cross-functional delivery</span>
-            <span class="skill-tag">Founding team</span>
-            <span class="skill-tag">Oxford tutoring</span>
-            <span class="skill-tag">Public speaking</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div class="contact-headline">Open to PM roles in London · Fintech preferred.</div>
-      <div class="contact-links">
-        <a href="mailto:shikhadahiya1997@gmail.com" class="contact-link teal">Email me</a>
-        <a href="https://linkedin.com/in/shikhadahiya" class="contact-link" target="_blank">LinkedIn</a>
-        <a href="https://github.com/shikhadahiya" class="contact-link" target="_blank">GitHub</a>
-      </div>
-    </section>
-
+<section class="hero" data-scene="0" id="top">
+  <div class="hero-text">
+    <h1>Shikha Dahiya.</h1>
+    <p class="kicker">Technical Product Manager.</p>
+    <p class="lede">I build products where technology meets finance.</p>
+    <div class="links">
+      <a href="#work">See my work ›</a>
+      <a href="#contact">Get in touch ›</a>
+    </div>
   </div>
+  <div class="face-col">
+    <div id="face-anchor" aria-label="Portrait of Shikha drawn in binary digits" role="img"></div>
+    <ul class="keywords" aria-label="Focus areas"><li>Tech</li><li>Product</li><li>AI</li><li>Finance</li></ul>
+    <div class="kw-sub">Oxford MBA 2026</div>
+  </div>
+</section>
+
+<section class="scene center" data-scene="1" id="impact">
+  <h2>Six years at Bloomberg and Microsoft.</h2>
+  <p class="sub">Measured in outcomes.</p>
+  <dl class="stats">
+    <div><dt>$4M</dt><dd>in client revenue unlocked</dd></div>
+    <div><dt>$50M</dt><dd>saved every year</dd></div>
+    <div><dt>50%</dt><dd>lower latency</dd></div>
+  </dl>
+</section>
+
+<section class="scene" data-scene="2" id="work">
+  <h2 class="work-head">Work.</h2>
+  <div class="tabs-wrap">
+    <div class="tabs" role="tablist" aria-orientation="vertical" aria-label="Work">
+      <button class="tab" role="tab" type="button" id="tab-experience" data-tab="experience" aria-controls="panel-experience" aria-selected="true" tabindex="0">Experience</button>
+      <button class="tab" role="tab" type="button" id="tab-projects" data-tab="projects" aria-controls="panel-projects" aria-selected="false" tabindex="-1">Projects</button>
+      <button class="tab" role="tab" type="button" id="tab-education" data-tab="education" aria-controls="panel-education" aria-selected="false" tabindex="-1">Education</button>
+    </div>
+    <div class="panels">
+      <div class="panel" role="tabpanel" id="panel-experience" aria-labelledby="tab-experience" tabindex="0">
+        <ul class="rows">
+          <li><span class="org">Credimate</span><span class="what">Co-Founder &amp; Product Manager</span><span class="yrs">2026 – now</span></li>
+          <li><span class="org">Bloomberg</span><span class="what">Senior Software Engineer</span><span class="yrs">2022 – 2025</span></li>
+          <li><span class="org">Microsoft Azure</span><span class="what">Software Performance Engineer</span><span class="yrs">2021 – 2022</span></li>
+          <li><span class="org">Microsoft Bing</span><span class="what">Software Engineer</span><span class="yrs">2019 – 2021</span></li>
+        </ul>
+      </div>
+      <div class="panel" role="tabpanel" id="panel-projects" aria-labelledby="tab-projects" tabindex="0" hidden>
+        <div class="cards">
+          <article class="card"><div class="metric">100M+</div><h3>Credimate</h3><p>Credit for India's informal borrowers.</p></article>
+          <article class="card"><div class="metric">$4M</div><h3>Order capacity</h3><p>750 to 2,000 orders. One client deal unlocked.</p></article>
+          <article class="card"><div class="metric">$50M</div><h3>Azure networking</h3><p>Saved every year on a pre-release API.</p></article>
+          <article class="card"><div class="metric">5%</div><h3>Test automation</h3><p>Manual QA, down from 100%.</p></article>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="panel-education" aria-labelledby="tab-education" tabindex="0" hidden>
+        <ul class="rows">
+          <li><span class="org">University of Oxford</span><span class="what">MBA, Saïd Business School</span><span class="yrs">2026</span></li>
+          <li><span class="org">Delhi Technological University</span><span class="what">B.Tech, Computer Engineering</span><span class="yrs">2019</span></li>
+        </ul>
+        <p class="note">Recognised on the 2025 Tech Women Celebration list.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene center contact" data-scene="3" id="contact">
+  <div id="sd-anchor" aria-hidden="true"></div>
+  <h2>Let's talk.</h2>
+  <p class="sub">Open to product roles in London.</p>
+  <div class="email" id="email">shikhadahiya1997@gmail.com</div>
+  <button class="pill" id="copy" type="button">Copy email</button>
+  <div class="links">
+    <a href="https://linkedin.com/in/shikhadahiya">LinkedIn ›</a>
+    <a href="https://github.com/shikhadahiya">GitHub ›</a>
+  </div>
+</section>
+
+<footer>© 2026 Shikha Dahiya</footer>
+</div>
 </main>
 
-<footer>
-  <div class="container footer-inner">
-    <span class="footer-copy">© 2026 Shikha. Built with intent.</span>
-    <span class="footer-copy">Oxford MBA · Bloomberg · Microsoft · Credimate</span>
-  </div>
-</footer>
+<script>
+(() => {
+  const canvas = document.getElementById('bits');
+  const ctx = canvas.getContext('2d');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = matchMedia('(pointer: fine)').matches;
+  const TONES = { hi: '#F5F5F7', mid: '#C7C7CC', lo: '#48484A' };
+  const BG = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#000000';
+  const SPRITE = 18;
+  const FIELD_SIZE = 9;
+  const PHOTO_SRC = 'portrait.jpg';
+  const GLOW_SRC = 'portrait-glow.png';
+  let glowImg = null;
 
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shikha — Product Manager Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #F7F4EF;
-    --surface: #FFFFFF;
-    --surface2: #F0EDE8;
-    --ink: #0D1B2A;
-    --ink2: #4A5568;
-    --ink3: #718096;
-    --teal: #00B4A2;
-    --teal-light: #E1F5EE;
-    --teal-dark: #007A6E;
-    --gold: #C9A84C;
-    --blue: #185FA5;
-    --blue-light: #E6F1FB;
-    --purple: #3C3489;
-    --purple-light: #EEEDFE;
-    --border: rgba(13,27,42,0.1);
-    --border2: rgba(13,27,42,0.18);
-    --radius: 12px;
-    --radius-sm: 8px;
+  let W = 0, H = 0, DPR = 1, N = 0;
+  let particles = [], scenes = [], sprites = {}, centers = [];
+  let photo = null, mouse = { x: -9999, y: -9999 }, introStart = 0;
+  let glow = location.hash !== '#bits-only';
+  const sceneEls = [...document.querySelectorAll('[data-scene]')];
+  const TAB_SHAPES = [['experience', '</>', 0.34], ['projects', '{ }', 0.42], ['education', 'MBA', 0.3]];
+  let tabScenes = {}, activeTab = 'experience';
+
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const smooth = (e0, e1, x) => { const t = Math.min(1, Math.max(0, (x - e0) / (e1 - e0))); return t * t * (3 - 2 * t); };
+  const shuffle = (arr) => { for (let i = arr.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; };
+
+  function makeSprites() {
+    sprites = {};
+    const px = Math.ceil(SPRITE * 1.2 * DPR);
+    for (const [tone, color] of Object.entries(TONES)) {
+      for (const g of ['0', '1']) {
+        const s = document.createElement('canvas');
+        s.width = s.height = px;
+        const x = s.getContext('2d');
+        x.scale(DPR, DPR);
+        x.font = `700 ${SPRITE}px 'Geist Mono', ui-monospace, monospace`;
+        x.textBaseline = 'top';
+        x.fillStyle = color;
+        x.fillText(g, 1, 1);
+        sprites[tone + g] = s;
+      }
+    }
   }
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    line-height: 1.6;
-    min-height: 100vh;
+
+  // Downscale in halving steps so each cell averages its area instead of point-sampling.
+  function luminance(src, cols, rows) {
+    let cur = src, w = src.width, h = src.height;
+    while (w / 2 >= cols * 1.5 && h / 2 >= rows * 1.5) {
+      const c = document.createElement('canvas');
+      c.width = Math.round(w / 2); c.height = Math.round(h / 2);
+      c.getContext('2d').drawImage(cur, 0, 0, c.width, c.height);
+      cur = c; w = c.width; h = c.height;
+    }
+    const out = document.createElement('canvas');
+    out.width = cols; out.height = rows;
+    const ox = out.getContext('2d', { willReadFrequently: true });
+    ox.imageSmoothingQuality = 'high';
+    ox.drawImage(cur, 0, 0, cols, rows);
+    const d = ox.getImageData(0, 0, cols, rows).data;
+    const lum = new Float32Array(cols * rows);
+    for (let i = 0; i < lum.length; i++) lum[i] = (0.299 * d[i * 4] + 0.587 * d[i * 4 + 1] + 0.114 * d[i * 4 + 2]) / 255;
+    return lum;
   }
-  .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
 
-  /* NAV */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(247,244,239,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 0.5px solid var(--border);
-    padding: 0.85rem 0;
+  function sampleScene(render, box, strength, accent = true) {
+    const S = 480;
+    const hi = document.createElement('canvas');
+    hi.width = hi.height = S;
+    const hx = hi.getContext('2d');
+    hx.fillStyle = '#000';
+    hx.fillRect(0, 0, S, S);
+    render(hx, S);
+
+    const probe = luminance(hi, 48, 48);
+    let litCount = 0;
+    for (const v of probe) if (v > 0.07) litCount++;
+    const lit = Math.max(0.05, litCount / probe.length);
+    const step = Math.max(4, Math.min(16, Math.sqrt((box.w * box.h * lit) / N)));
+    const size = Math.max(5, Math.min(13, step * 1.3));
+    const cols = Math.max(10, Math.round(box.w / step));
+    const rows = Math.max(10, Math.round(box.h / step));
+    const lum = luminance(hi, cols, rows);
+
+    const pts = [];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const v = lum[r * cols + c];
+        if (v <= 0.1) continue;
+        pts.push({
+          x: box.x + (c + 0.5) * (box.w / cols) - size * 0.35,
+          y: box.y + (r + 0.5) * (box.h / rows) - size * 0.6,
+          a: Math.pow(v, 1.15),
+          tone: accent && v > 0.8 ? 'hi' : v > 0.32 ? 'mid' : 'lo'
+        });
+      }
+    }
+    shuffle(pts);
+    const count = Math.min(pts.length, N);
+    const out = new Array(N);
+    for (let i = 0; i < N; i++) {
+      out[i] = i < count ? pts[i] : { x: box.x + Math.random() * box.w, y: box.y + Math.random() * box.h, a: 0, tone: 'lo' };
+    }
+    return { pts: shuffle(out), strength, count, size, k: 0 };
   }
-  .nav-inner { display: flex; justify-content: space-between; align-items: center; }
-  .nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); text-decoration: none; }
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-  .nav-links a { font-size: 13px; color: var(--ink2); text-decoration: none; font-weight: 500; }
-  .nav-links a:hover { color: var(--teal); }
 
-  /* HERO */
-  .hero { padding: 5rem 0 3.5rem; }
-  .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink3); margin-bottom: 1.2rem; }
-  .teal-bar { display: block; width: 40px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 1.6rem; }
-  .hero-name { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; color: var(--ink); line-height: 1.05; margin-bottom: 0.4rem; }
-  .hero-tagline { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; font-style: italic; color: var(--ink2); margin-bottom: 1.5rem; }
-  .hero-desc { font-size: 15px; color: var(--ink2); max-width: 580px; margin-bottom: 2rem; line-height: 1.8; }
-  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2rem; }
-  .pill { font-size: 12px; font-weight: 500; padding: 5px 13px; border-radius: 20px; border: 0.5px solid var(--border2); color: var(--ink2); background: var(--surface); }
-  .pill.teal { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
-  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .btn-primary { font-size: 13px; font-weight: 600; padding: 10px 22px; border-radius: var(--radius-sm); background: var(--ink); color: var(--bg); border: none; cursor: pointer; text-decoration: none; display: inline-block; }
-  .btn-primary:hover { background: #1a2f45; }
-  .btn-ghost { font-size: 13px; font-weight: 500; padding: 10px 22px; border-radius: var(--radius-sm); background: transparent; color: var(--ink); border: 0.5px solid var(--border2); cursor: pointer; text-decoration: none; display: inline-block; }
-  .btn-ghost:hover { background: var(--surface2); }
-
-  /* SECTIONS */
-  .section { padding: 3rem 0; border-top: 0.5px solid var(--border); }
-  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; margin-bottom: 0.3rem; }
-  .section-sub { font-size: 14px; color: var(--ink3); margin-bottom: 2.2rem; }
-
-  /* STATS */
-  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .stat-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 1.25rem; text-align: center; }
-  .stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--ink); }
-  .stat-lbl { font-size: 12px; color: var(--ink3); margin-top: 4px; line-height: 1.4; }
-
-  /* LENS CARDS */
-  .lens-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .lens-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; position: relative; overflow: hidden; }
-  .lens-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-  .lens-icon { font-size: 24px; margin-bottom: 0.9rem; }
-  .lens-title { font-size: 16px; font-weight: 600; margin-bottom: 0.5rem; }
-  .lens-desc { font-size: 13px; color: var(--ink2); line-height: 1.65; margin-bottom: 1.1rem; }
-  .lens-bullets { list-style: none; }
-  .lens-bullets li { font-size: 12px; color: var(--ink3); padding: 3px 0; display: flex; gap: 7px; }
-  .lens-bullets li::before { content: '→'; color: var(--teal); flex-shrink: 0; }
-
-  /* WORK CARDS */
-  .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .work-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.4rem; transition: border-color 0.2s, box-shadow 0.2s; }
-  .work-card:hover { border-color: var(--teal); box-shadow: 0 2px 16px rgba(0,180,162,0.08); }
-  .work-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; }
-  .work-tag { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 12px; }
-  .work-tag.fintech { background: var(--teal-light); color: var(--teal-dark); }
-  .work-tag.infra { background: var(--blue-light); color: var(--blue); }
-  .work-tag.ai { background: var(--purple-light); color: var(--purple); }
-  .work-tag.research { background: #FAEEDA; color: #854F0B; }
-  .work-co { font-size: 11px; color: var(--ink3); }
-  .work-title { font-size: 15px; font-weight: 600; margin-bottom: 0.5rem; }
-  .work-desc { font-size: 13px; color: var(--ink2); line-height: 1.65; margin-bottom: 1rem; }
-  .work-impact { font-size: 12px; font-weight: 500; color: var(--teal-dark); padding-top: 0.85rem; border-top: 0.5px solid var(--border); }
-
-  /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .skill-group { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-sm); padding: 1.1rem; }
-  .skill-group-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink3); margin-bottom: 0.75rem; }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .skill-tag { font-size: 11px; padding: 3px 8px; border-radius: 10px; border: 0.5px solid var(--border2); color: var(--ink2); }
-
-  /* CONTACT */
-  .contact-section { padding: 3rem 0; border-top: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
-  .contact-headline { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ink); }
-  .contact-links { display: flex; gap: 10px; flex-wrap: wrap; }
-  .contact-link { font-size: 13px; font-weight: 500; padding: 9px 18px; border: 0.5px solid var(--border2); border-radius: var(--radius-sm); color: var(--ink2); text-decoration: none; }
-  .contact-link:hover { background: var(--surface2); color: var(--ink); }
-  .contact-link.teal { border-color: var(--teal); color: var(--teal-dark); background: var(--teal-light); }
-
-  /* FOOTER */
-  footer { border-top: 0.5px solid var(--border); padding: 1.5rem 0; }
-  .footer-inner { display: flex; justify-content: space-between; align-items: center; }
-  .footer-copy { font-size: 12px; color: var(--ink3); }
-
-  /* RESPONSIVE */
-  @media (max-width: 700px) {
-    .hero-name { font-size: 36px; }
-    .lens-grid, .work-grid, .skills-grid, .stat-row { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .contact-section { flex-direction: column; align-items: flex-start; }
+  // Shapes ------------------------------------------------------------
+  function drawStandIn(x, S) {
+    const g = (stops, x0, y0, x1, y1) => { const gr = x.createLinearGradient(x0, y0, x1, y1); stops.forEach(([o, c]) => gr.addColorStop(o, c)); return gr; };
+    // hair behind
+    x.fillStyle = '#333333';
+    x.beginPath();
+    x.ellipse(S * 0.5, S * 0.47, S * 0.255, S * 0.3, 0, Math.PI, 0);
+    x.lineTo(S * 0.77, S * 0.8);
+    x.quadraticCurveTo(S * 0.5, S * 0.86, S * 0.23, S * 0.8);
+    x.closePath();
+    x.fill();
+    // shoulders
+    x.fillStyle = g([[0, '#6e6e6e'], [1, '#262626']], 0, S * 0.75, 0, S);
+    x.beginPath();
+    x.ellipse(S * 0.5, S * 1.04, S * 0.43, S * 0.29, 0, Math.PI, 0);
+    x.fill();
+    // neck
+    x.fillStyle = '#7a7a7a';
+    x.fillRect(S * 0.44, S * 0.6, S * 0.12, S * 0.18);
+    // face
+    const face = x.createRadialGradient(S * 0.44, S * 0.38, S * 0.02, S * 0.5, S * 0.45, S * 0.26);
+    face.addColorStop(0, '#ffffff');
+    face.addColorStop(0.55, '#e4e4e4');
+    face.addColorStop(1, '#b4b4b4');
+    x.fillStyle = face;
+    x.beginPath();
+    x.ellipse(S * 0.5, S * 0.45, S * 0.19, S * 0.235, 0, 0, Math.PI * 2);
+    x.fill();
+    // fringe
+    x.fillStyle = '#333333';
+    x.beginPath();
+    x.ellipse(S * 0.5, S * 0.29, S * 0.2, S * 0.1, 0, Math.PI, 0);
+    x.quadraticCurveTo(S * 0.6, S * 0.31, S * 0.46, S * 0.33);
+    x.quadraticCurveTo(S * 0.36, S * 0.34, S * 0.3, S * 0.4);
+    x.closePath();
+    x.fill();
+    // features
+    x.fillStyle = '#000000';
+    for (const ex of [0.425, 0.575]) {
+      x.beginPath(); x.ellipse(S * ex, S * 0.445, S * 0.034, S * 0.019, 0, 0, Math.PI * 2); x.fill();
+      x.fillRect(S * (ex - 0.035), S * 0.405, S * 0.07, S * 0.012);
+    }
+    x.strokeStyle = '#555555'; x.lineWidth = S * 0.012;
+    x.beginPath(); x.moveTo(S * 0.5, S * 0.47); x.lineTo(S * 0.49, S * 0.53); x.lineTo(S * 0.51, S * 0.535); x.stroke();
+    x.strokeStyle = '#111111'; x.lineWidth = S * 0.016;
+    x.beginPath(); x.moveTo(S * 0.455, S * 0.585); x.quadraticCurveTo(S * 0.5, S * 0.61, S * 0.545, S * 0.585); x.stroke();
   }
-</style>
-</head>
-<body>
 
-<nav>
-  <div class="container nav-inner">
-    <a href="#" class="nav-logo">Shikha</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+  function drawPhoto(x, S) {
+    x.drawImage(photo, 0, 0, S, S);
+  }
 
-<main>
-  <div class="container">
+  function textShape(txt, size) {
+    return (x, S) => {
+      const gr = x.createLinearGradient(0, 0, S, S);
+      gr.addColorStop(0, '#ffffff');
+      gr.addColorStop(1, '#6a6a6a');
+      x.fillStyle = gr;
+      x.font = `800 ${S * size}px 'Geist Mono', ui-monospace, monospace`;
+      x.textAlign = 'center';
+      x.textBaseline = 'middle';
+      x.fillText(txt, S / 2, S / 2);
+    };
+  }
 
-    <section class="hero" id="about">
-      <p class="hero-eyebrow">Product Manager · Oxford MBA · London</p>
-      <span class="teal-bar"></span>
-      <h1 class="hero-name">Shikha</h1>
-      <p class="hero-tagline">I built things. Now I decide what to build.</p>
-      <p class="hero-desc">Six years shipping production systems at Bloomberg and Microsoft — across order management, distributed databases, and search infrastructure. Now channelling that engineering depth into product strategy, backed by an Oxford MBA and a fintech startup I co-founded.</p>
-      <div class="pill-row">
-        <span class="pill teal">Fintech PM</span>
-        <span class="pill">Order Management Systems</span>
-        <span class="pill">Technical Architecture</span>
-        <span class="pill">Oxford MBA · Saïd</span>
-        <span class="pill">Credimate Co-founder</span>
-      </div>
-      <div class="btn-row">
-        <a href="#work" class="btn-primary">View my work</a>
-        <a href="#contact" class="btn-ghost">Get in touch</a>
-      </div>
-    </section>
+  // A loose, faint scatter of bits for sections that carry their own large type.
+  function fieldScene() {
+    const pts = new Array(N);
+    for (let i = 0; i < N; i++) pts[i] = { x: Math.random() * W, y: Math.random() * H, a: Math.random() < 0.3 ? rand(0.15, 0.45) : 0, tone: 'lo' };
+    return { pts, strength: 1, count: 0, size: FIELD_SIZE, k: 0 };
+  }
 
-    <section class="section">
-      <div class="stat-row">
-        <div class="stat-card">
-          <div class="stat-num">6</div>
-          <div class="stat-lbl">Years in production engineering</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">2</div>
-          <div class="stat-lbl">Global tech giants</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">75+</div>
-          <div class="stat-lbl">Traders on migrated OMS</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">Oxford</div>
-          <div class="stat-lbl">MBA, Saïd Business School</div>
-        </div>
-      </div>
-    </section>
+  // Layout ------------------------------------------------------------
+  function boxes() {
+    const desktop = W >= 860;
+    const r = document.getElementById('face-anchor').getBoundingClientRect();
+    const hero = { x: r.left, y: r.top + scrollY, w: r.width, h: r.height };
+    let side;
+    if (desktop) {
+      const s = Math.min(r.width, H * 0.66);
+      side = { x: r.left + (r.width - s) / 2, y: (H - s) / 2, w: s, h: s };
+    } else {
+      const s = Math.min(W * 0.9, 440);
+      side = { x: (W - s) / 2, y: (H - s) / 2, w: s, h: s };
+    }
+    return { desktop, hero, side };
+  }
 
-    <section class="section">
-      <p class="section-label">The case for PM</p>
-      <h2 class="section-title">Three lenses on my career</h2>
-      <p class="section-sub">Engineering depth — seen through a product eye.</p>
-      <div class="lens-grid">
-        <div class="lens-card">
-          <div class="lens-accent" style="background: #00B4A2;"></div>
-          <div class="lens-icon" style="color: #00B4A2;"><i class="ti ti-building-bank"></i></div>
-          <div class="lens-title">The Systems Thinker</div>
-          <div class="lens-desc">At Bloomberg, I led a full Linux OMS migration with zero downtime for 75+ traders, designed async stress testing infrastructure, and built capacity monitoring that changed how the team planned for scale.</div>
-          <ul class="lens-bullets">
-            <li>Zero-downtime migration of trading-critical infrastructure</li>
-            <li>Async stress test platform — shifted ops from reactive to proactive</li>
-            <li>Capacity monitoring vision: from idea to organisational adoption</li>
-          </ul>
-        </div>
-        <div class="lens-card">
-          <div class="lens-accent" style="background: #185FA5;"></div>
-          <div class="lens-icon" style="color: #185FA5;"><i class="ti ti-cloud"></i></div>
-          <div class="lens-title">The Platform Builder</div>
-          <div class="lens-desc">At Microsoft, I worked across Cosmos DB, Azure, and Bing Search — spanning globally distributed data, cloud infrastructure, and search relevance at enormous scale.</div>
-          <ul class="lens-bullets">
-            <li>Cosmos DB: consistency, partitioning, and distributed trade-offs</li>
-            <li>Bing Search: relevance models, user signals, product iteration</li>
-            <li>Azure infrastructure: cross-team delivery and platform strategy</li>
-          </ul>
-        </div>
-        <div class="lens-card">
-          <div class="lens-accent" style="background: #C9A84C;"></div>
-          <div class="lens-icon" style="color: #C9A84C;"><i class="ti ti-coins"></i></div>
-          <div class="lens-title">The Founder</div>
-          <div class="lens-desc">Credimate is my most PM-native work — discovering a real gap in India's informal lending market, building UX prototypes, and pitching investors. Full ownership from insight to roadmap.</div>
-          <ul class="lens-bullets">
-            <li>User discovery: informal credit in India's trust networks</li>
-            <li>Built UX prototype and customer journey maps from scratch</li>
-            <li>Investor pitch preparation and business model design</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  function measureCenters() {
+    const maxS = Math.max(1, document.documentElement.scrollHeight - H);
+    centers = sceneEls.map((el, i) => {
+      if (i === 0) return 0;
+      const r = el.getBoundingClientRect();
+      return Math.min(maxS, r.top + scrollY + r.height / 2 - H / 2);
+    });
+  }
 
-    <section class="section" id="work">
-      <p class="section-label">Selected work</p>
-      <h2 class="section-title">Projects & impact</h2>
-      <p class="section-sub">From engineering achievements to product thinking.</p>
-      <div class="work-grid">
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag fintech">Fintech</span><span class="work-co">Co-founder</span></div>
-          <div class="work-title">Credimate — informal lending platform</div>
-          <div class="work-desc">Identified a trust gap in India's ₹25L Cr informal lending market. Built UX prototype, defined onboarding flows, and shaped the go-to-market targeting migrant workers and family lending circles.</div>
-          <div class="work-impact">→ Pitch-ready MVP with investor deck and customer journey map</div>
-        </div>
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag infra">Infrastructure</span><span class="work-co">Bloomberg LP</span></div>
-          <div class="work-title">Linux OMS migration — zero downtime</div>
-          <div class="work-desc">Led end-to-end migration of a trading-critical order management system to Linux, coordinating across infrastructure, QA, and trading desks. No downtime. No data loss. Shipped on time.</div>
-          <div class="work-impact">→ 75+ traders uninterrupted across cutover; new baseline for OMS reliability</div>
-        </div>
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag infra">Platform Strategy</span><span class="work-co">Bloomberg LP</span></div>
-          <div class="work-title">Capacity monitoring vision</div>
-          <div class="work-desc">Identified the absence of proactive capacity planning as a systemic risk. Championed a monitoring strategy that shifted the team from reactive incident response to forward-looking infrastructure planning.</div>
-          <div class="work-impact">→ Organisational adoption; reframed how the team thinks about scale</div>
-        </div>
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag infra">Engineering · PM</span><span class="work-co">Bloomberg LP</span></div>
-          <div class="work-title">Async stress test platform</div>
-          <div class="work-desc">Ported core components to asyncio and built a stress testing framework that simulated realistic trading load. Shifted QA from ad hoc checks to data-driven release confidence.</div>
-          <div class="work-impact">→ Enabled safe, frequent releases; changed the team's quality bar</div>
-        </div>
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag ai">Platform</span><span class="work-co">Microsoft</span></div>
-          <div class="work-title">Cosmos DB & Bing Search</div>
-          <div class="work-desc">Worked across globally distributed data infrastructure (Cosmos DB) and search relevance (Bing). Deepened understanding of consistency trade-offs, data modelling at scale, and product-driven feature iteration.</div>
-          <div class="work-impact">→ Cross-org exposure to platform strategy and large-scale user-facing systems</div>
-        </div>
-        <div class="work-card">
-          <div class="work-meta"><span class="work-tag research">MBA Research</span><span class="work-co">Saïd Business School</span></div>
-          <div class="work-title">Oxford MBA · Fintech & Markets</div>
-          <div class="work-desc">Fintech, Financial Trading, Entrepreneurial Finance, Strategic Leadership — including a £100m paper portfolio simulation and startup valuation for Mintlify's Series B.</div>
-          <div class="work-impact">→ Finance intuition layered onto engineering depth — rare in PM candidates</div>
-        </div>
-      </div>
-    </section>
+  function sceneT() {
+    const y = scrollY;
+    for (let i = 0; i < centers.length - 1; i++) {
+      if (y <= centers[i + 1]) return i + Math.max(0, (y - centers[i]) / ((centers[i + 1] - centers[i]) || 1));
+    }
+    return centers.length - 1;
+  }
 
-    <section class="section" id="skills">
-      <p class="section-label">Skills</p>
-      <h2 class="section-title">What I bring</h2>
-      <p class="section-sub">Technical depth meets product and finance intuition.</p>
-      <div class="skills-grid">
-        <div class="skill-group">
-          <div class="skill-group-title">Product</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Roadmapping</span>
-            <span class="skill-tag">User research</span>
-            <span class="skill-tag">OKRs</span>
-            <span class="skill-tag">Prioritisation</span>
-            <span class="skill-tag">Stakeholder mgmt</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Technical</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Distributed systems</span>
-            <span class="skill-tag">APIs</span>
-            <span class="skill-tag">Cloud (Azure)</span>
-            <span class="skill-tag">System design</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Finance</div>
-          <div class="skill-tags">
-            <span class="skill-tag">OMS / trading systems</span>
-            <span class="skill-tag">Fintech regulation</span>
-            <span class="skill-tag">Quant modelling</span>
-            <span class="skill-tag">VC valuation</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Leadership</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Cross-functional delivery</span>
-            <span class="skill-tag">Founding team</span>
-            <span class="skill-tag">Oxford tutoring</span>
-            <span class="skill-tag">Public speaking</span>
-          </div>
-        </div>
-      </div>
-    </section>
+  let heroBox = { x: 0, y: 0, w: 0, h: 0 };
+  function buildHero() {
+    const b = boxes();
+    heroBox = b.hero;
+    scenes[0] = sampleScene(photo ? drawPhoto : drawStandIn, b.hero, 1, false);
+    scenes[0].k = 0.6;
+  }
 
-    <section class="contact-section" id="contact">
-      <div class="contact-headline">Open to PM roles in London · Fintech preferred.</div>
-      <div class="contact-links">
-        <a href="mailto:shikhadahiya1997@gmail.com" class="contact-link teal">Email me</a>
-        <a href="https://linkedin.com/in/shikhadahiya" class="contact-link" target="_blank">LinkedIn</a>
-        <a href="https://github.com/shikhadahiya" class="contact-link" target="_blank">GitHub</a>
-      </div>
-    </section>
+  function build() {
+    W = innerWidth; H = innerHeight;
+    DPR = Math.min(2, devicePixelRatio || 1);
+    canvas.width = Math.round(W * DPR);
+    canvas.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    const nextN = W >= 860 ? 9000 : 4200;
+    makeSprites();
 
-  </div>
-</main>
+    const firstBuild = particles.length !== nextN;
+    N = nextN;
+    const b = boxes();
+    buildHero();
+    // The tabs section keeps its shape in the space right of the panels; each tab has its own shape.
+    const tw = document.querySelector('.tabs-wrap').getBoundingClientRect();
+    const room = W - tw.right - 32;
+    let tabBox = b.side, tabStrength = b.desktop ? 0.45 : 0.12;
+    if (b.desktop && room >= 260) {
+      const s = Math.min(room - 16, H * 0.6, 500);
+      tabBox = { x: tw.right + 16 + (room - 16 - s) / 2, y: (H - s) / 2, w: s, h: s };
+    } else if (b.desktop) {
+      tabStrength = 0.12;
+    }
+    tabScenes = {};
+    for (const [key, txt, size] of TAB_SHAPES) tabScenes[key] = sampleScene(textShape(txt, size), tabBox, tabStrength);
+    scenes[1] = fieldScene();
+    scenes[2] = tabScenes[activeTab];
+    // The initials form above "Let's talk" and travel with the page, like a logo.
+    const sr = document.getElementById('sd-anchor').getBoundingClientRect();
+    scenes[3] = sampleScene(textShape('sd', 0.62), { x: sr.left, y: sr.top + scrollY, w: sr.width, h: sr.height }, 0.95);
+    scenes[3].k = 1;
+    measureCenters();
 
-<footer>
-  <div class="container footer-inner">
-    <span class="footer-copy">© 2026 Shikha. Built with intent.</span>
-    <span class="footer-copy">Oxford MBA · Bloomberg · Microsoft · Credimate</span>
-  </div>
-</footer>
+    if (firstBuild) {
+      particles = Array.from({ length: N }, () => ({
+        x: rand(-W * 0.2, W * 1.2), y: rand(-H * 0.2, H * 1.2), vx: 0, vy: 0, a: 0,
+        g: Math.random() < 0.5 ? '0' : '1',
+        fx: Math.random() * W, fy: Math.random() * H,
+        fb: rand(0.3, 1), phase: Math.random() * Math.PI * 2
+      }));
+    } else {
+      for (const p of particles) { p.fx = Math.random() * W; p.fy = Math.random() * H; }
+    }
+  }
 
+  // Frame -------------------------------------------------------------
+  function frame(now) {
+    const t = sceneT();
+    const i0 = Math.min(Math.floor(t), scenes.length - 1);
+    const i1 = Math.min(i0 + 1, scenes.length - 1);
+    const f = smooth(0.18, 0.82, t - i0);
+    const wa = (1 - f) * (1 - f), wf = 2 * f * (1 - f), wb = f * f;
+    const A = scenes[i0], B = scenes[i1];
+    const offA = -scrollY * (A.k || 0);
+    const offB = -scrollY * (B.k || 0);
+    const time = now * 0.001;
+    const size = (wa * A.size + wf * FIELD_SIZE + wb * B.size) * 1.2;
+
+    // Paint the page colour (not transparent) so the additive glow can only brighten, never darken.
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = BG;
+    ctx.fillRect(0, 0, W, H);
+    // A faint copy of the photo under the bits gives the face its tonal shape; it fades as the face dissolves.
+    if (photo && glow && i0 === 0) {
+      const intro = reduce ? 1 : Math.min(1, (now - introStart) / 1200);
+      const hb = heroBox;
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalAlpha = 0.26 * wa * intro * intro;
+      ctx.drawImage(glowImg || photo, hb.x, hb.y - scrollY * 0.6, hb.w, hb.h);
+      ctx.globalCompositeOperation = 'source-over';
+    }
+    for (let k = 0; k < N; k++) {
+      const p = particles[k], a = A.pts[k], b = B.pts[k];
+      const wob = reduce ? 0 : 1;
+      const fx = p.fx + Math.sin(time * 0.3 + p.phase) * 14 * wob;
+      const fy = p.fy + Math.cos(time * 0.23 + p.phase) * 14 * wob;
+      let tx = wa * a.x + wf * fx + wb * b.x;
+      let ty = wa * (a.y + offA) + wf * fy + wb * (b.y + offB);
+      const ta = wa * a.a * A.strength + wf * 0.16 * p.fb + wb * b.a * B.strength;
+
+      if (finePointer && !reduce) {
+        const dx = tx - mouse.x, dy = ty - mouse.y, d2 = dx * dx + dy * dy;
+        if (d2 < 6400) { const d = Math.sqrt(d2) || 1, push = (80 - d) * 0.6; tx += (dx / d) * push; ty += (dy / d) * push; }
+      }
+
+      if (reduce) {
+        p.x = tx; p.y = ty; p.a = ta;
+      } else {
+        p.vx = (p.vx + (tx - p.x) * 0.07) * 0.8;
+        p.vy = (p.vy + (ty - p.y) * 0.07) * 0.8;
+        p.x += p.vx; p.y += p.vy;
+        p.a += (ta - p.a) * 0.1;
+        if (Math.random() < 0.004) p.g = p.g === '0' ? '1' : '0';
+      }
+
+      if (p.a < 0.012 || p.x < -size || p.y < -size || p.x > W || p.y > H) continue;
+      const tone = wf > 0.5 ? 'lo' : (f < 0.5 ? a.tone : b.tone);
+      ctx.globalAlpha = Math.min(1, p.a);
+      ctx.drawImage(sprites[tone + p.g], p.x, p.y, size, size);
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(frame);
+  }
+
+
+  document.getElementById('copy').addEventListener('click', (e) => {
+    const btn = e.currentTarget, text = document.getElementById('email').textContent;
+    const done = (msg) => { btn.textContent = msg; setTimeout(() => { btn.textContent = 'Copy email'; }, 1600); };
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => done('Copied'), () => { getSelection().selectAllChildren(document.getElementById('email')); done('Selected, press Ctrl+C'); });
+    } else {
+      getSelection().selectAllChildren(document.getElementById('email'));
+      done('Selected, press Ctrl+C');
+    }
+  });
+
+  // Tabs ---------------------------------------------------------------
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  function selectTab(key, focus) {
+    activeTab = key;
+    for (const t of tabs) {
+      const on = t.dataset.tab === key;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      if (on && focus) t.focus();
+    }
+    if (tabScenes[key]) scenes[2] = tabScenes[key];
+    measureCenters();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => selectTab(t.dataset.tab));
+    t.addEventListener('keydown', (e) => {
+      const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (step) { e.preventDefault(); selectTab(tabs[(i + step + tabs.length) % tabs.length].dataset.tab, true); }
+      else if (e.key === 'Home') { e.preventDefault(); selectTab(tabs[0].dataset.tab, true); }
+      else if (e.key === 'End') { e.preventDefault(); selectTab(tabs[tabs.length - 1].dataset.tab, true); }
+    });
+  });
+  document.querySelectorAll('[data-open]').forEach((a) => a.addEventListener('click', () => selectTab(a.dataset.open)));
+  const fromHash = location.hash.slice(1);
+  if (tabs.some((t) => t.dataset.tab === fromHash)) {
+    selectTab(fromHash);
+    document.getElementById('work').scrollIntoView();
+  }
+
+  addEventListener('pointermove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+  addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
+
+  let resizeTimer;
+  addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(build, 180); });
+
+  function start() {
+    const img = new Image();
+    const go = () => { build(); introStart = performance.now(); requestAnimationFrame(frame); };
+    img.onload = () => { photo = img; go(); };
+    img.onerror = go;
+    img.src = PHOTO_SRC;
+    const gimg = new Image();
+    gimg.onload = () => { glowImg = gimg; };
+    gimg.src = GLOW_SRC;
+  }
+
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(start);
+})();
+</script>
 </body>
 </html>
