@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Shikha Dahiya, Technical Product Manager in London. Oxford MBA, formerly Bloomberg and Microsoft, co-founder of Credimate.">
+<meta name="description" content="Shikha Dahiya, Technical Product Manager for trading and financial infrastructure, building with AI. Oxford MBA 2026, formerly Bloomberg and Microsoft.">
 <title>Shikha Dahiya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,33 +54,37 @@ h1 { font-size: clamp(56px, 7.4vw, 104px); line-height: 0.95; letter-spacing: -0
 .center { text-align: center; align-items: center; }
 h2 { font-size: clamp(40px, 5.4vw, 72px); line-height: 1.04; letter-spacing: -0.045em; }
 .sub { margin: 12px 0 0; font-size: clamp(19px, 2vw, 26px); color: var(--muted); letter-spacing: -0.02em; }
-.stats { margin: 72px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; width: 100%; max-width: 980px; }
+.stats { margin: 72px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; width: 100%; max-width: 1080px; }
 .stats div { display: flex; flex-direction: column; gap: 6px; }
-.stats dt { font-size: clamp(56px, 7vw, 96px); font-weight: 600; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.stats dt { font-size: clamp(52px, 6vw, 84px); font-weight: 600; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
 .stats dd { margin: 0; font-size: 19px; color: var(--muted); }
 
-.work-head { margin-bottom: 56px; }
-.tabs-wrap { width: 100%; max-width: 760px; display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 48px; align-items: start; }
-.tabs { display: flex; flex-direction: column; gap: 4px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 40px); }
-.tab { min-height: 48px; padding: 0; background: none; border: none; font: inherit; font-size: 24px; font-weight: 600; letter-spacing: -0.03em; color: #48484A; text-align: left; cursor: pointer; transition: color .2s; }
-.tab:hover { color: var(--muted); }
-.tab[aria-selected="true"] { color: var(--fg); }
-.panels { min-width: 0; min-height: 440px; }
-.panel { animation: fade .35s ease-out; }
-@keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .rows { margin: 0; padding: 0; list-style: none; }
 .rows li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; align-items: baseline; padding-block: 22px; border-bottom: 1px solid var(--line); }
 .rows li:first-child { padding-top: 6px; }
 .rows .org { font-size: 24px; font-weight: 600; letter-spacing: -0.03em; }
 .rows .what { grid-column: 1; color: var(--muted); }
 .rows .yrs { grid-column: 2; grid-row: 1; color: var(--muted); font-size: 15px; font-variant-numeric: tabular-nums; }
-.note { margin: 20px 0 0; font-size: 15px; color: var(--muted); }
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-.card { background: var(--surface); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 8px; }
-.card .metric { font-size: clamp(36px, 4vw, 48px); font-weight: 600; letter-spacing: -0.05em; line-height: 1; padding-bottom: 10px; }
-.card h3 { font-size: 17px; }
-.card p { margin: 0; font-size: 15px; color: var(--muted); }
 
+.left-col { width: 100%; max-width: 640px; display: flex; flex-direction: column; }
+.left-col > h2 { margin-bottom: 8px; }
+.left-col > .rows { margin-top: 40px; }
+.cases { margin-top: 48px; display: flex; flex-direction: column; gap: 16px; }
+.case { background: var(--surface); border-radius: 22px; padding: 32px; display: flex; flex-direction: column; gap: 12px; }
+.eyebrow { font-size: 14px; color: var(--muted); }
+.case h3 { font-size: clamp(24px, 2.6vw, 30px); line-height: 1.15; letter-spacing: -0.035em; text-wrap: pretty; }
+.case p { margin: 0; color: var(--muted); font-size: 17px; }
+.more summary { list-style: none; cursor: pointer; color: var(--link); font-size: 17px; width: max-content; }
+.more summary::-webkit-details-marker { display: none; }
+.more summary::after { content: ' ›'; }
+.more[open] summary::after { content: ' ⌄'; }
+.more summary:hover { text-decoration: underline; }
+.more summary:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 6px; }
+.cs { margin: 18px 0 0; display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 14px 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+.cs dt { color: var(--muted); font-size: 15px; }
+.cs dd { margin: 0; font-size: 15px; }
+.also { margin: 28px 0 0; color: var(--muted); font-size: 15px; max-width: 58ch; }
+.rows .what { font-size: 15px; }
 #sd-anchor { width: 200px; height: 200px; max-width: 60vw; max-height: 60vw; margin-bottom: 24px; }
 .email { margin-top: 40px; font-size: clamp(22px, 3vw, 34px); font-weight: 600; letter-spacing: -0.03em; user-select: all; overflow-wrap: anywhere; }
 .pill { margin-top: 18px; min-height: 44px; padding: 0 22px; border-radius: 999px; border: none; background: var(--fg); color: var(--bg); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; }
@@ -88,6 +92,9 @@ h2 { font-size: clamp(40px, 5.4vw, 72px); line-height: 1.04; letter-spacing: -0.
 .contact .links { justify-content: center; padding-top: 28px; }
 footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: var(--muted); }
 
+@media (min-width: 860px) and (max-width: 1100px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 859px) {
   .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-block: 8px 72px; text-align: center; }
   .hero-text { align-items: center; }
@@ -95,20 +102,15 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
   .face-col { order: -1; }
   #face-anchor { max-width: 380px; }
   .scene { min-height: 0; padding-block: 96px; }
-  .stats { grid-template-columns: minmax(0, 1fr); gap: 36px; margin-top: 48px; }
-  .work-head { margin-bottom: 28px; }
-  .tabs-wrap { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .tabs { position: static; flex-direction: row; background: var(--surface); border-radius: 999px; padding: 4px; gap: 0; }
-  .tab { flex: 1 1 0; min-height: 40px; border-radius: 999px; font-size: 15px; letter-spacing: -0.01em; text-align: center; color: var(--muted); }
-  .tab[aria-selected="true"] { background: #3A3A3C; color: var(--fg); }
-  .panels { min-height: 0; }
-  .cards { grid-template-columns: minmax(0, 1fr); }
-  .rows .org { font-size: 21px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 20px; margin-top: 48px; }
+  .case { padding: 24px; }
+  .cs { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .cs dd { padding-bottom: 10px; }
+                .rows .org { font-size: 21px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .panel { animation: none; }
-}
+  }
 </style>
 </head>
 <body>
@@ -121,9 +123,9 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
 <header class="bar">
   <span class="me">Shikha Dahiya</span>
   <nav aria-label="Sections">
-    <a href="#work" data-open="experience">Experience</a>
-    <a href="#work" data-open="projects">Projects</a>
-    <a href="#work" data-open="education">Education</a>
+    <a href="#cases">Work</a>
+    <a href="#speaking">Speaking</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -132,10 +134,10 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
   <div class="hero-text">
     <h1>Shikha Dahiya.</h1>
     <p class="kicker">Technical Product Manager.</p>
-    <p class="lede">I build products where technology meets finance.</p>
+    <p class="lede">For trading and financial infrastructure, building with AI.</p>
     <div class="links">
-      <a href="#work">See my work ›</a>
-      <a href="#contact">Get in touch ›</a>
+      <a href="https://linkedin.com/in/shikhadahiya">LinkedIn ›</a>
+      <a href="mailto:shikhadahiya1997@gmail.com">Email ›</a>
     </div>
   </div>
   <div class="face-col">
@@ -149,49 +151,74 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
   <h2>Six years at Bloomberg and Microsoft.</h2>
   <p class="sub">Measured in outcomes.</p>
   <dl class="stats">
-    <div><dt>$4M</dt><dd>in client revenue unlocked</dd></div>
-    <div><dt>$50M</dt><dd>saved every year</dd></div>
+    <div><dt>$4M</dt><dd>client deal enabled</dd></div>
+    <div><dt>2.7×</dt><dd>order capacity</dd></div>
     <div><dt>50%</dt><dd>lower latency</dd></div>
+    <div><dt>$50M</dt><dd>saved every year</dd></div>
   </dl>
 </section>
 
-<section class="scene" data-scene="2" id="work">
-  <h2 class="work-head">Work.</h2>
-  <div class="tabs-wrap">
-    <div class="tabs" role="tablist" aria-orientation="vertical" aria-label="Work">
-      <button class="tab" role="tab" type="button" id="tab-experience" data-tab="experience" aria-controls="panel-experience" aria-selected="true" tabindex="0">Experience</button>
-      <button class="tab" role="tab" type="button" id="tab-projects" data-tab="projects" aria-controls="panel-projects" aria-selected="false" tabindex="-1">Projects</button>
-      <button class="tab" role="tab" type="button" id="tab-education" data-tab="education" aria-controls="panel-education" aria-selected="false" tabindex="-1">Education</button>
+<section class="scene" data-scene="2" id="cases">
+  <div class="left-col">
+    <h2>Case studies.</h2>
+    <p class="sub">Bloomberg, 2022 – 2025.</p>
+    <div class="cases">
+      <article class="case">
+        <div class="eyebrow">Bloomberg · led the work</div>
+        <h3>OMS capacity: 750 → 2,000 concurrent orders</h3>
+        <p>A capacity ceiling was blocking a $4M enterprise client. I found the bottleneck, wrote the business case and led a London–New York team to raise throughput 2.7×, enabling the deal.</p>
+        <details class="more">
+          <summary>Read the case study</summary>
+          <dl class="cs">
+            <dt>Problem</dt><dd>Order processing capacity limited how fast Bloomberg could onboard enterprise clients, and a $4M deal depended on raising it.</dd>
+            <dt>My role</dt><dd>Defined the solution, built the business case and led a cross-functional team across London and New York.</dd>
+            <dt>Result</dt><dd>Concurrent order capacity rose from 750 to 2,000, enabling the $4M client deal.</dd>
+          </dl>
+        </details>
+      </article>
+      <article class="case">
+        <div class="eyebrow">Bloomberg · defined and led</div>
+        <h3>QA automation: 100% → 5% manual testing</h3>
+        <p>Every release depended on manual QA. I used data to choose which workflows to automate first and brought QA, Product and Engineering in three offices together to ship the OTE UI automation framework.</p>
+        <details class="more">
+          <summary>Read the case study</summary>
+          <dl class="cs">
+            <dt>Problem</dt><dd>Complete reliance on manual QA was slowing releases and eroding confidence in each one.</dd>
+            <dt>My role</dt><dd>Defined the product vision, set priorities from usage data, and coordinated QA, Product and Engineering across three offices.</dd>
+            <dt>Result</dt><dd>Manual QA dependency fell from 100% to 5%, and the framework was adopted across the organisation.</dd>
+          </dl>
+        </details>
+      </article>
     </div>
-    <div class="panels">
-      <div class="panel" role="tabpanel" id="panel-experience" aria-labelledby="tab-experience" tabindex="0">
-        <ul class="rows">
-          <li><span class="org">Credimate</span><span class="what">Co-Founder &amp; Product Manager</span><span class="yrs">2026 – now</span></li>
-          <li><span class="org">Bloomberg</span><span class="what">Senior Software Engineer</span><span class="yrs">2022 – 2025</span></li>
-          <li><span class="org">Microsoft Azure</span><span class="what">Software Performance Engineer</span><span class="yrs">2021 – 2022</span></li>
-          <li><span class="org">Microsoft Bing</span><span class="what">Software Engineer</span><span class="yrs">2019 – 2021</span></li>
-        </ul>
-      </div>
-      <div class="panel" role="tabpanel" id="panel-projects" aria-labelledby="tab-projects" tabindex="0" hidden>
-        <div class="cards">
-          <article class="card"><div class="metric">100M+</div><h3>Credimate</h3><p>Credit for India's informal borrowers.</p></article>
-          <article class="card"><div class="metric">$4M</div><h3>Order capacity</h3><p>750 to 2,000 orders. One client deal unlocked.</p></article>
-          <article class="card"><div class="metric">$50M</div><h3>Azure networking</h3><p>Saved every year on a pre-release API.</p></article>
-          <article class="card"><div class="metric">5%</div><h3>Test automation</h3><p>Manual QA, down from 100%.</p></article>
-        </div>
-      </div>
-      <div class="panel" role="tabpanel" id="panel-education" aria-labelledby="tab-education" tabindex="0" hidden>
-        <ul class="rows">
-          <li><span class="org">University of Oxford</span><span class="what">MBA, Saïd Business School</span><span class="yrs">2026</span></li>
-          <li><span class="org">Delhi Technological University</span><span class="what">B.Tech, Computer Engineering</span><span class="yrs">2019</span></li>
-        </ul>
-        <p class="note">Recognised on the 2025 Tech Women Celebration list.</p>
-      </div>
-    </div>
+    <p class="also">Also at Bloomberg: 50% lower OMS latency, a capacity measurement framework agreed at a 60–70 person engineering summit, and a client trading simulation that is now part of new-hire onboarding.</p>
   </div>
 </section>
 
-<section class="scene center contact" data-scene="3" id="contact">
+<section class="scene" data-scene="3" id="speaking">
+  <div class="left-col">
+    <h2>Speaking and recognition.</h2>
+    <ul class="rows">
+      <li><span class="org">From Silicon to Sentience</span><span class="what">AI literacy lecture to ~100 Year 12 students, OxNet, Pembroke College, Oxford</span><span class="yrs">2026</span></li>
+      <li><span class="org">Oxford Union</span><span class="what">Debating during the Oxford MBA</span><span class="yrs">2025 – 26</span></li>
+      <li><span class="org">Tech Women Celebration</span><span class="what">Named on the 2025 list</span><span class="yrs">2025</span></li>
+      <li><span class="org">Microsoft Hackathon</span><span class="what">Honoree mention out of 7,000 projects</span><span class="yrs">2020</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="scene" data-scene="4" id="about">
+  <div class="left-col">
+    <h2>About.</h2>
+    <ul class="rows">
+      <li><span class="org">University of Oxford</span><span class="what">MBA, Saïd Business School. FinTech, AI in Finance and a £100M paper portfolio.</span><span class="yrs">2026</span></li>
+      <li><span class="org">Credimate</span><span class="what">Co-founded an AI trust-scoring app for India's informal borrowers.</span><span class="yrs">2026</span></li>
+      <li><span class="org">Microsoft</span><span class="what">Bing Search, then Cosmos DB and Azure, where a network configuration I delivered saves $50M a year.</span><span class="yrs">2019 – 2022</span></li>
+      <li><span class="org">Delhi Technological University</span><span class="what">B.Tech, Computer Engineering.</span><span class="yrs">2019</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="scene center contact" data-scene="5" id="contact">
   <div id="sd-anchor" aria-hidden="true"></div>
   <h2>Let's talk.</h2>
   <p class="sub">Open to product &amp; engineering roles in London.</p>
@@ -226,8 +253,6 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
   let photo = null, mouse = { x: -9999, y: -9999 }, introStart = 0;
   let glow = location.hash !== '#bits-only';
   const sceneEls = [...document.querySelectorAll('[data-scene]')];
-  const TAB_SHAPES = [['experience', '</>', 0.34], ['projects', '{ }', 0.42], ['education', 'MBA', 0.3]];
-  let tabScenes = {}, activeTab = 'experience';
 
   const rand = (a, b) => a + Math.random() * (b - a);
   const smooth = (e0, e1, x) => { const t = Math.min(1, Math.max(0, (x - e0) / (e1 - e0))); return t * t * (3 - 2 * t); };
@@ -425,6 +450,13 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
     scenes[0].k = 0.6;
   }
 
+  // The initials form above "Let's talk" and travel with the page, like a logo.
+  function buildContact() {
+    const sr = document.getElementById('sd-anchor').getBoundingClientRect();
+    scenes[5] = sampleScene(textShape('sd', 0.62), { x: sr.left, y: sr.top + scrollY, w: sr.width, h: sr.height }, 0.95);
+    scenes[5].k = 1;
+  }
+
   function build() {
     W = innerWidth; H = innerHeight;
     DPR = Math.min(2, devicePixelRatio || 1);
@@ -438,24 +470,21 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
     N = nextN;
     const b = boxes();
     buildHero();
-    // The tabs section keeps its shape in the space right of the panels; each tab has its own shape.
-    const tw = document.querySelector('.tabs-wrap').getBoundingClientRect();
-    const room = W - tw.right - 32;
-    let tabBox = b.side, tabStrength = b.desktop ? 0.45 : 0.12;
-    if (b.desktop && room >= 260) {
-      const s = Math.min(room - 16, H * 0.6, 500);
-      tabBox = { x: tw.right + 16 + (room - 16 - s) / 2, y: (H - s) / 2, w: s, h: s };
-    } else if (b.desktop) {
-      tabStrength = 0.12;
-    }
-    tabScenes = {};
-    for (const [key, txt, size] of TAB_SHAPES) tabScenes[key] = sampleScene(textShape(txt, size), tabBox, tabStrength);
+    // Sections with a left reading column get a shape in the space to their right.
+    const sideOf = (sel) => {
+      const r = document.querySelector(sel).getBoundingClientRect();
+      const room = W - r.right - 32;
+      if (b.desktop && room >= 260) {
+        const s = Math.min(room - 16, H * 0.6, 500);
+        return [{ x: r.right + 16 + (room - 16 - s) / 2, y: (H - s) / 2, w: s, h: s }, 0.45];
+      }
+      return [b.side, 0.12];
+    };
     scenes[1] = fieldScene();
-    scenes[2] = tabScenes[activeTab];
-    // The initials form above "Let's talk" and travel with the page, like a logo.
-    const sr = document.getElementById('sd-anchor').getBoundingClientRect();
-    scenes[3] = sampleScene(textShape('sd', 0.62), { x: sr.left, y: sr.top + scrollY, w: sr.width, h: sr.height }, 0.95);
-    scenes[3].k = 1;
+    scenes[2] = sampleScene(textShape('</>', 0.34), ...sideOf('#cases .left-col'));
+    scenes[3] = sampleScene(textShape('★', 0.7), ...sideOf('#speaking .left-col'));
+    scenes[4] = sampleScene(textShape('MBA', 0.3), ...sideOf('#about .left-col'));
+    buildContact();
     measureCenters();
 
     if (firstBuild) {
@@ -541,35 +570,8 @@ footer { padding-block: 48px 56px; text-align: center; font-size: 13px; color: v
     }
   });
 
-  // Tabs ---------------------------------------------------------------
-  const tabs = [...document.querySelectorAll('[role="tab"]')];
-  function selectTab(key, focus) {
-    activeTab = key;
-    for (const t of tabs) {
-      const on = t.dataset.tab === key;
-      t.setAttribute('aria-selected', String(on));
-      t.tabIndex = on ? 0 : -1;
-      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
-      if (on && focus) t.focus();
-    }
-    if (tabScenes[key]) scenes[2] = tabScenes[key];
-    measureCenters();
-  }
-  tabs.forEach((t, i) => {
-    t.addEventListener('click', () => selectTab(t.dataset.tab));
-    t.addEventListener('keydown', (e) => {
-      const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
-      if (step) { e.preventDefault(); selectTab(tabs[(i + step + tabs.length) % tabs.length].dataset.tab, true); }
-      else if (e.key === 'Home') { e.preventDefault(); selectTab(tabs[0].dataset.tab, true); }
-      else if (e.key === 'End') { e.preventDefault(); selectTab(tabs[tabs.length - 1].dataset.tab, true); }
-    });
-  });
-  document.querySelectorAll('[data-open]').forEach((a) => a.addEventListener('click', () => selectTab(a.dataset.open)));
-  const fromHash = location.hash.slice(1);
-  if (tabs.some((t) => t.dataset.tab === fromHash)) {
-    selectTab(fromHash);
-    document.getElementById('work').scrollIntoView();
-  }
+  // Opening a case study changes the page height, so re-measure where each scene sits.
+  document.querySelectorAll('details').forEach((d) => d.addEventListener('toggle', () => { measureCenters(); buildContact(); }));
 
   addEventListener('pointermove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
   addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
